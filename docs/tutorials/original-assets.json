@@ -1,0 +1,127 @@
+[
+  {
+    "file": "MLLMs_arch.png",
+    "bytes": 1385087,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/MLLMs_arch.png"
+  },
+  {
+    "file": "TMRoPE.png",
+    "bytes": 1527883,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/TMRoPE.png"
+  },
+  {
+    "file": "blip2_stage1.png",
+    "bytes": 343368,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/blip2_stage1.png"
+  },
+  {
+    "file": "blip2_stage2.png",
+    "bytes": 501594,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/blip2_stage2.png"
+  },
+  {
+    "file": "blip_learning_framework.png",
+    "bytes": 324245,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/blip_learning_framework.png"
+  },
+  {
+    "file": "blip_model_architecture.png",
+    "bytes": 692089,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/blip_model_architecture.png"
+  },
+  {
+    "file": "clip.png",
+    "bytes": 414970,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/clip.png"
+  },
+  {
+    "file": "clip_prompt_engineering.png",
+    "bytes": 195681,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/clip_prompt_engineering.png"
+  },
+  {
+    "file": "kimi_vl_arch.png",
+    "bytes": 641358,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/kimi_vl_arch.png"
+  },
+  {
+    "file": "kimi_vl_post_training.png",
+    "bytes": 410571,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/kimi_vl_post_training.png"
+  },
+  {
+    "file": "kimi_vl_pretrain.png",
+    "bytes": 776598,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/kimi_vl_pretrain.png"
+  },
+  {
+    "file": "llava_architecture.png",
+    "bytes": 222590,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/llava_architecture.png"
+  },
+  {
+    "file": "llava_instruction_data.png",
+    "bytes": 653808,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/llava_instruction_data.png"
+  },
+  {
+    "file": "llava_science_qa_accuracy.png",
+    "bytes": 354969,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/llava_science_qa_accuracy.png"
+  },
+  {
+    "file": "mrope.png",
+    "bytes": 527921,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/mrope.png"
+  },
+  {
+    "file": "multimodality_data.png",
+    "bytes": 1613382,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/multimodality_data.png"
+  },
+  {
+    "file": "o3_o4_benchmark.png",
+    "bytes": 260138,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/o3_o4_benchmark.png"
+  },
+  {
+    "file": "qwen2.5_omni.png",
+    "bytes": 623811,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/qwen2.5_omni.png"
+  },
+  {
+    "file": "qwen2.5_omni_arch.png",
+    "bytes": 488441,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/qwen2.5_omni_arch.png"
+  },
+  {
+    "file": "qwen2.5vl_arc.jpeg",
+    "bytes": 1003229,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/qwen2.5vl_arc.jpeg"
+  },
+  {
+    "file": "qwen2_vl.jpg",
+    "bytes": 1012789,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/qwen2_vl.jpg"
+  },
+  {
+    "file": "qwen_vl_pipeline.png",
+    "bytes": 793323,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/qwen_vl_pipeline.png"
+  },
+  {
+    "file": "thinking_with_images_static.webp",
+    "bytes": 111718,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/thinking_with_images_static.webp"
+  },
+  {
+    "file": "vit_bit_hybrid_compare.png",
+    "bytes": 154791,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/vit_bit_hybrid_compare.png"
+  },
+  {
+    "file": "vit_overview.png",
+    "bytes": 330669,
+    "source": "https://raw.githubusercontent.com/syhya/syhya.github.io/main/content/zh/posts/2025-05-04-multimodal-llm/vit_overview.png"
+  }
+]

@@ -1,0 +1,269 @@
+{
+  "source_sha256": "002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7",
+  "original_nonblank_lines_preserved_in_order": 553,
+  "original_corrections": 10,
+  "new_model_chapters": 25,
+  "new_chinese_characters": 43367,
+  "embedded_images": 55,
+  "paper_and_official_new_images": 15,
+  "reconstructed_new_images": 15,
+  "coverage": [
+    {
+      "model": "GLM-4.1V-Thinking、GLM-4.5V 与 GLM-4.6V",
+      "chinese_characters": 1819,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/glm46v-architecture.png"
+      ]
+    },
+    {
+      "model": "InternVL3.5",
+      "chinese_characters": 1800,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/internvl35-architecture.png"
+      ]
+    },
+    {
+      "model": "MiniCPM-V 4.5",
+      "chinese_characters": 1797,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/minicpmv45-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3-VL",
+      "chinese_characters": 1814,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/qwen3vl-architecture.jpg"
+      ]
+    },
+    {
+      "model": "Molmo2",
+      "chinese_characters": 1831,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/molmo2-architecture.png"
+      ]
+    },
+    {
+      "model": "Kimi K2.5",
+      "chinese_characters": 1825,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/kimik25-backbone.png",
+        "assets/new/kimik25-agent-swarm.png"
+      ]
+    },
+    {
+      "model": "Qwen3.5",
+      "chinese_characters": 1825,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/qwen35-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3.6",
+      "chinese_characters": 1840,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/qwen36-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3.8-27B",
+      "chinese_characters": 1862,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/qwen38-architecture.png"
+      ]
+    },
+    {
+      "model": "MiniCPM-V 4.6",
+      "chinese_characters": 1805,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/minicpmv46-architecture.png"
+      ]
+    },
+    {
+      "model": "GLM-5.3-Flash",
+      "chinese_characters": 1824,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/glm53flash-architecture.png"
+      ]
+    },
+    {
+      "model": "Kimi K2.6",
+      "chinese_characters": 1331,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/kimik26-architecture.png"
+      ]
+    },
+    {
+      "model": "Kimi K3",
+      "chinese_characters": 1905,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/kimik3-architecture.png",
+        "assets/reconstructed/kimik3-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3-Omni",
+      "chinese_characters": 1820,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/qwen3-omni-architecture.png"
+      ]
+    },
+    {
+      "model": "LLaVA-OneVision-1.5",
+      "chinese_characters": 1867,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/llava-onevision-1-5-architecture.png"
+      ]
+    },
+    {
+      "model": "MiniCPM-o 4.5",
+      "chinese_characters": 1923,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/minicpm-o-4-5-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3.5-Omni",
+      "chinese_characters": 1942,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/qwen3-5-omni-architecture.jpg"
+      ]
+    },
+    {
+      "model": "LLaVA-OneVision-2",
+      "chinese_characters": 1884,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/new/llava-onevision-2-architecture.png"
+      ]
+    },
+    {
+      "model": "Gemma 4",
+      "chinese_characters": 1948,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gemma4-architecture.png",
+        "assets/new/gemma-4-architecture.png",
+        "assets/new/gemma-4-mtp-architecture.png"
+      ]
+    },
+    {
+      "model": "Qwen3.8-Omni-Flash",
+      "chinese_characters": 1357,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/qwen38-omni-architecture.png",
+        "assets/new/qwen3-8-omni-realtime-architecture.png"
+      ]
+    },
+    {
+      "model": "GPT-6 Astra / GPT-6.1 Sol",
+      "chinese_characters": 1588,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gpt6-family-architecture.png"
+      ]
+    },
+    {
+      "model": "Gemini 3.1 Pro",
+      "chinese_characters": 1268,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gemini31-pro-architecture.png"
+      ]
+    },
+    {
+      "model": "Gemini 3.8 Flash",
+      "chinese_characters": 1342,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gemini38-flash-architecture.png"
+      ]
+    },
+    {
+      "model": "Gemini 3.8 Audio",
+      "chinese_characters": 1438,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gemini38-audio-architecture.png"
+      ]
+    },
+    {
+      "model": "Gemini Omni Flash / Gemini Omni 1.1 Flash",
+      "chinese_characters": 1506,
+      "structure": true,
+      "training": true,
+      "effects": true,
+      "figures": [
+        "assets/reconstructed/gemini-omni-flash-architecture.png"
+      ]
+    }
+  ],
+  "unsafe_html_elements": [],
+  "result": "PASS"
+}

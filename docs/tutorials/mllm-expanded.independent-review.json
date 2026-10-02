@@ -1,0 +1,99 @@
+{
+  "verdict": "PASS",
+  "reviewed_at": "2026-10-02",
+  "review_backend": "fresh cross-family collaboration agent",
+  "mcp__codex__codex_used": false,
+  "mcp_note": "The skill-named MCP endpoint was unavailable. This is a real independent substitute review by a fresh cross-family agent; no MCP result is claimed or fabricated.",
+  "source_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-expanded.md",
+  "html_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-expanded.html",
+  "source_sha256": "002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7",
+  "html_sha256": "d227128fa87d69277b259880f3257d5e4b6c1f245ef9e44d6c2066d8933d1014",
+  "checks": {
+    "source_hash_match": "pass",
+    "information_fidelity": "pass",
+    "structure": "pass",
+    "math_code_tables": "pass",
+    "callouts": "not_applicable",
+    "safety_escaping": "pass",
+    "placeholder_leak": "pass",
+    "active_content": "pass",
+    "image_fidelity_and_provenance": "pass",
+    "original_article_preservation": "pass",
+    "new_chapter_depth": "pass",
+    "fact_inference_boundary": "pass",
+    "figure_caption_alignment": "pass"
+  },
+  "evidence": {
+    "render_freshness": "HTML source-sha256 meta and visible footer match the frozen Markdown SHA-256. A fresh rerender from the same source is byte-identical after normalizing only the generated-at timestamp.",
+    "structure_counts": {
+      "headings": 49,
+      "tables": 25,
+      "table_cells": 616,
+      "fenced_code_blocks": 3,
+      "unordered_lists": 45,
+      "ordered_lists": 40,
+      "list_items": 279,
+      "blockquotes": 4,
+      "details_blocks": 2
+    },
+    "math": {
+      "source_expressions": 282,
+      "html_math_spans": 282,
+      "display_expressions": 40,
+      "exact_order_and_text_match": true,
+      "invalid_paragraph_block_nesting_hits": 0
+    },
+    "code": {
+      "source_fenced_blocks": 3,
+      "html_pre_blocks": 3,
+      "exact_order_and_text_match": true
+    },
+    "images": {
+      "markdown_references": 55,
+      "unique_references": 55,
+      "embedded_images": 55,
+      "all_have_alt_text": true,
+      "embedded_bytes_match_local_files_in_order": true,
+      "original_assets": 25,
+      "paper_or_official_new_assets": 15,
+      "reconstructed_assets": 15,
+      "missing_provenance_records": 0,
+      "recorded_hash_mismatches": 0,
+      "all_reconstructed_figures_marked_nonofficial": true
+    },
+    "article_preservation": {
+      "original_nonblank_lines_preserved_in_order": 553,
+      "documented_corrections_applied_exactly_once": 10
+    },
+    "chapter_coverage": {
+      "new_model_chapters": 25,
+      "new_chinese_characters": 43367,
+      "each_has_structure_training_effects_and_figure": true
+    },
+    "disclosure_boundary_review": "Closed-model sections keep undisclosed internals in gray dashed regions, avoid invented parameter counts and training recipes, and distinguish neural architecture from external tool or service workflows. Open-model sections tie detailed module counts and training stages to public configurations or papers and qualify teaching formulas and causal interpretations.",
+    "caption_repairs_verified": [
+      "Qwen3.6 and Qwen3.8 captions state that screenshot feedback returns through the visual branch rather than text embeddings.",
+      "Gemini 3.8 Flash caption states that Reasoning/Plan and effort are behavioral teaching abstractions rather than disclosed modules or a fixed token-budget formula.",
+      "Gemini 3.1 Pro caption states that the two feedback arrows are alternate views of one feedback concept rather than two disclosed neural routes.",
+      "Kimi K3 caption and prose scope MXFP4/MXFP8 quantization to routed-expert weights and activations while keeping shared experts and other modules at higher precision.",
+      "GPT-6 Astra / GPT-6.1 Sol uses an undisclosed backbone gray box and parallel disclosed training elements, without inventing a staged training schedule."
+    ],
+    "safety": {
+      "unexpected_active_or_form_tags": [],
+      "event_handler_attributes": [],
+      "javascript_or_vbscript_urls": [],
+      "placeholder_or_replacement_character_leaks": [],
+      "scripts": [
+        "one renderer-authored MathJax configuration block",
+        "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"
+      ],
+      "script_assessment": "Both scripts are expected renderer output for formula display; no source-injected executable content survives."
+    }
+  },
+  "blocking_issues": [],
+  "warnings": [],
+  "limitations": [
+    "The factual audit checks disclosure boundaries, cited primary-source alignment, internal consistency, figure provenance, and high-risk architecture/training/evaluation claims; it does not rerun third-party benchmark suites."
+  ],
+  "summary": "PASS. The frozen Markdown and HTML match source SHA-256 002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7. The reading view preserves every audited structural element, all 282 math expressions, all code blocks and tables, and all 55 images with byte-level embedding and provenance checks. The original article remains present in order with exactly 10 documented corrections, and all 25 added model chapters include substantive structure, training, effects, and figures. Closed and partially disclosed models maintain explicit fact-versus-inference boundaries; the previously ambiguous feedback, reasoning, dual-arrow, quantization, and GPT training captions are corrected. No blocking issue, warning, unsafe active content, stale hash, or placeholder leak remains."
+}

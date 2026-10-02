@@ -1,0 +1,24 @@
+{
+  "verdict": "REVIEW_UNAVAILABLE",
+  "reason": "The skill-named mcp__codex__codex endpoint is not exposed in this session.",
+  "source_sha256": "002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7",
+  "recorded_at": "2026-10-02T17:55:06+08:00",
+  "alternative_review": {
+    "verdict": "PASS",
+    "backend": "fresh collaboration agent",
+    "model": "gpt-5.6-sol",
+    "review_file": "mllm-expanded.independent-review.json",
+    "blocking_issues": 0,
+    "warnings": 0
+  },
+  "content_and_figure_review": "content-and-figure-review.md",
+  "browser_checks": {
+    "images_loaded": 55,
+    "math_rendered": 282,
+    "math_errors": 0,
+    "unprotected_math": 0,
+    "horizontal_page_overflow": false,
+    "observed_source_sha256": "002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7"
+  },
+  "note": "No claim is made that the unavailable MCP endpoint ran. A fresh independent model performed the equivalent render audit and reviewed new content and reconstructed figures."
+}

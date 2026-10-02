@@ -1,0 +1,407 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-10-02",
+  "mode": "built-in image_gen",
+  "figure_count": 15,
+  "usage": "教学用结构重建。均非官方论文图；来源已由研究代理核验，生成结果逐图检查，并按 root 独立审查意见修订。",
+  "legend": {
+    "solid": "已披露模块或支持的系统数据流",
+    "gray_dashed": "仅图中文字明确指出的未披露内部机制；辅助/训练面板边界需按逐图标题判断",
+    "separate_panel": "训练说明、辅助神经模块或系统工作流，性质见逐图注释"
+  },
+  "prompt_history_note": "initial_prompt 为最初生成指令，revision_prompts 按顺序修正其问题；以最终PNG及最终审查条目为准，不将已修正的早期prompt内容当成现行事实。",
+  "figures": [
+    {
+      "id": "qwen35",
+      "model": "Qwen3.5",
+      "path": "assets/reconstructed/qwen35-architecture.png",
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.5-397B-A17B/raw/main/config.json",
+        "https://qwen.ai/blog?id=qwen3.5"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "367473313A142AAC8E707202670A4DF85CDEB6187BC625B35F9FE53A9A90F34C",
+      "initial_prompt": "Use case: scientific-educational\nAsset type: accurate model architecture figure for a Chinese multimodal LLM tutorial, English labels.\nPrimary request: Create a polished scholarly architecture diagram on a clean white background, landscape 3:2, high resolution. Title exactly \"Qwen3.5 architecture reconstruction\". Subtitle \"397B-A17B checkpoint\".\nDiagram content: Two inputs at left: Image / Video (blue) and Text (cream). Image/video enters a blue box \"Vision encoder\" with compact labels \"27 layers; patch 16; temporal patch 2\". Then a blue box \"Spatial merger\" with labels \"2 x 2; output dim 4096\". Text enters cream box \"Token embeddings\". Both streams join a sequence of visual tokens and text tokens and flow into a large pale green box labelled \"Hybrid MoE decoder: 60 layers\". Inside show a vertical ordered block of three blue-green \"Gated DeltaNet\" layers then one lavender \"Gated Attention\" layer, with brackets \"repeat 15 times\". A parallel side box attached to the decoder says \"MoE per layer\" with \"512 routed experts; top-10 + shared expert\". Show arrows through all layers, no arrow across unconnected alternatives. Decoder flows to orange \"Text / Code output\". Small bottom annotation \"Interleaved MRoPE; native context 262,144 tokens\". Optional bottom training strip separate from inference path: \"Early text-vision fusion\" → \"Large-scale RL\", with no invented dataset count.\nTypography: crisp professional sans serif, all exact model numbers legible, simple rectangular blocks, thin arrows, restrained pastel blue/green/lavender/orange, no photographic decoration. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\".\nConstraints: No DeepStack branches, no audio encoder, no pixel generation head. Do not imply all variants have this exact number of experts/layers. Do not add any unknown module, fabricated benchmark or logo. Leave generous whitespace and use at most 20 text labels.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. In this inspected Qwen3.5 diagram, change only the heading of the lower training panel. Replace \"Optional training (not part of inference path)\" by the exact text \"High-level training (not part of inference path)\". Preserve everything else exactly, including the two training blocks and arrows, all model counts/experts, upper inference path, context length, title/subtitle, footer, palette and image dimensions."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "397B-A17B checkpoint stated; vision 27 layers, patch16/temporal2/2x2 merger shown.",
+          "60-layer hybrid decoder rendered as 3 DeltaNet + 1 gated full-attention x15; 512 routed experts top10+shared.",
+          "High-level early text-vision fusion and large-scale RL are distinct from inference; no DeepStack assumed."
+        ]
+      },
+      "former_aliases": [
+        "qwen3-5-architecture.png"
+      ]
+    },
+    {
+      "id": "kimik25-backbone",
+      "model": "Kimi K2.5",
+      "path": "assets/reconstructed/kimik25-backbone.png",
+      "sources": [
+        "https://arxiv.org/html/2602.02276v1#S4.SS2",
+        "https://github.com/MoonshotAI/Kimi-K2.5"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "ED050FF7590C1C96190D7AF22E48EB3A663AB6F70DCE67B2466317FD8ADA7AEA",
+      "initial_prompt": "Use case: scientific-educational\nAsset type: accurate model architecture figure for a multimodal LLM tutorial, English labels.\nPrimary request: Create a polished paper-style model architecture reconstruction on a white background, landscape 3:2 high resolution. Title exactly \"Kimi K2.5 architecture reconstruction\".\nInference path: left upper blue \"Image\" and blue \"Video: frame groups <= 4\" flow to a shared large blue encoder box \"MoonViT-3D\" with notes \"400M; native resolution; NaViT packing; shared image/video weights\". Draw separate image and video paths after the same encoder: image features go directly ahead; video features go through a blue box \"Temporal mean pooling\" labelled \"up to 4x compression\"; these paths join at a green \"MLP projector\". A cream \"Text token embeddings\" box joins projected visual tokens to a green large \"Kimi K2 MoE decoder\" containing \"1.04T total; 32B active\", \"384 experts; 8 selected / token\", \"256K context\". Decoder outputs orange \"Text / Code / Tool calls\". All confirmed module-flow arrows are solid.\nShow a separate small light lavender panel below with heading \"Training sequence\", the distinct stages \"ViT training\" → \"Joint text-vision pre-training\" → \"Text-only SFT\" → \"Joint multimodal RL\". Beneath text-only SFT small note \"visual ability was learned in joint pre-training\". A separate small outlined optional execution panel at far right below outputs \"Agent Swarm: orchestration + tools\", connected from Tool calls, clearly outside the neural decoder.\nStyle: scholarly crisp sans-serif, thin arrows, gentle blue green cream orange palettes, no icon clutter. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\".\nConstraints: Encoder, pooling and MLP are main subject; do not replace backbone by Agent Swarm only. Do not make video pass through a separate unshared encoder. No audio or image generation head. All numeric counts must be correct. No fabricated benchmark graphs or logos.",
+      "revision_prompts": [],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Shared MoonViT-3D with image bypass and video temporal pooling before MLP.",
+          "K2 MoE counts and 256K context verified; Agent Swarm explicitly outside backbone.",
+          "Text-only SFT annotation explains prior joint text-vision pre-training."
+        ]
+      },
+      "former_aliases": [
+        "kimi-k2-5-architecture.png"
+      ]
+    },
+    {
+      "id": "qwen36",
+      "model": "Qwen3.6-35B-A3B",
+      "path": "assets/reconstructed/qwen36-architecture.png",
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.6-35B-A3B/raw/main/config.json",
+        "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "104ECE522064D540E2A6545CB888FA7FFFC007F633E68150BBC081CA366A1348",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Qwen3.6 architecture reconstruction\". Subtitle \"35B-A3B checkpoint\".\nImage / Video (patch 16; temporal patch 2) -> blue \"Vision encoder: 27 layers; hidden 1152\" -> \"2 x 2 spatial merger; output dim 2048\" -> multimodal token sequence. Cream \"Text / reasoning history / tool results\" -> token embeddings -> same sequence. Sequence \"Interleaved MRoPE; native context 262,144 tokens\" -> large green \"Hybrid MoE decoder: 40 layers\". Inside ordered stack three \"Gated DeltaNet\" blocks and one \"Gated Attention\" block, bracket repeat 10 times. Side module within decoder \"MoE per layer: 256 routed experts; top-8 + shared expert\". Decoder -> \"Answer / Code / Tool calls\". A separate system panel \"External tool execution\" receives tool calls and returns text or screenshots to input, clearly outside neural model. Add grey dashed small note \"Full data mixture and RL algorithm: undisclosed\". No DeepStack, no audio, no pixel generation, no new neural layer called Thinking Preservation.",
+      "revision_prompts": [],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "35B-A3B configuration: 40 layers, hybrid ratio3:1, 256 routed experts top8+shared.",
+          "27-layer vision encoder and hidden2048 projection shown.",
+          "External tool loop returns observations to input rather than inventing neural tool layer."
+        ]
+      }
+    },
+    {
+      "id": "qwen38",
+      "model": "Qwen3.8-27B",
+      "path": "assets/reconstructed/qwen38-architecture.png",
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.8-27B/raw/main/config.json",
+        "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/raw/main/config.json"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "7D1BDFD60D422411289440D0961686CDC8386E12C26B539BC2313F70AA940996",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Qwen3.8 architecture reconstruction\". Subtitle \"27B native vision-language checkpoint\".\nImage / Video (patch 16; temporal patch 2) -> blue \"Vision encoder: 27 layers; hidden 1152\" -> \"2 x 2 spatial merger; output dim 5120\" -> multimodal token sequence. Cream \"Text / reasoning history / tool results\" -> embeddings -> same sequence \"Interleaved MRoPE\". Sequence -> large green \"Dense decoder: 64 layers\". Within show \"3 x Gated DeltaNet + 1 x Gated Attention\" ordered four blocks, bracket \"repeat 16 times\"; separate small internal \"Dense FFN per layer\". Decoder -> \"Answer / Code / Tool calls\". Footer annotation \"Native context: 262,144 tokens\". Separate lavender system panel \"Browser / Desktop / Code tools\" returning screenshots or results into input.\nImportant inset in grey \"This figure describes 27B only. 2.4T-A95B released configuration is text-only.\" It is essential that this diagram is explicitly 27B and not general full-family. No MoE, no DeepStack, no audio or media-generation head.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix only these elements in the inspected Qwen3.8 architecture figure; preserve its dimensions, title, main architecture, all model numbers, palette, layout, core boxes and rest of the text. Add a thin clear arrow from Answer / Code / Tool calls down to the System: Browser / Desktop / Code tools panel labelled \"Tool calls\". Replace the whole right middle grey \"Undisclosed\" panel with a smaller simple grey dashed panel whose only text is \"Full training data ratios and RL recipe: undisclosed\". Remove the bottom left Training panel because it duplicates that new note. Do not state positional encoding, normalization or model internals are all undisclosed. Leave other figure content exactly unchanged."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Explicitly Qwen3.8-27B; dense64 layers x16 hybrid4-layer groups and dense FFNs.",
+          "2.4T-A95B text-only released configuration distinguished.",
+          "Tool-call forward and feedback arrows repaired; undisclosed note restricted to full training ratios/RL recipe."
+        ]
+      }
+    },
+    {
+      "id": "minicpmv46",
+      "model": "MiniCPM-V 4.6",
+      "path": "assets/reconstructed/minicpmv46-architecture.png",
+      "sources": [
+        "https://huggingface.co/openbmb/MiniCPM-V-4.6/raw/main/config.json",
+        "https://raw.githubusercontent.com/huggingface/transformers/main/src/transformers/models/minicpmv4_6/modeling_minicpmv4_6.py",
+        "https://huggingface.co/openbmb/MiniCPM-V-4.6"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "F6BE4800FD51885299C12E2BD42EEF5396A5AE9DCC1B7A49DD1A5DC056AC8A57",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"MiniCPM-V 4.6 architecture reconstruction\". Subtitle \"Early visual compression; 4x / 16x modes\".\nFlow: blue input \"Images / Video frames\" -> \"NaViT patch packing; patch 14\" -> blue \"SigLIP2-400M: first 7 layers (index 0-6)\" -> a diamond \"Compression mode\". Two clearly alternative branches: upper \"16x mode: internal 2 x 2 merger\" then small \"1/4 patch tokens\"; lower \"4x mode: bypass internal merger\" then small \"More visual detail\". Both join \"Remaining 20 ViT layers (27 total)\" -> green \"Final 2 x 2 MLP merger; output dim 1024\" -> green \"Qwen3.5-0.8B decoder: 24 layers\" with small \"3 x DeltaNet + 1 x full attention, repeated\". Cream Text tokens enters decoder. Orange output \"Text / Short answer / Thinking answer\". A clear caption below says \"4x and 16x refer to patch-token compression, not total model speed\". Ensure labels for modes not swapped. No 3D Resampler copied from MiniCPM-V 4.5; no audio output.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix only the two large lower panels in the inspected MiniCPM-V4.6 figure. Completely remove the lower \"Training\" and \"System\" panels and their text; leave clean white background there. Replace them with one small concise grey dashed centered note \"Detailed training data mixture and RL recipe: undisclosed\". Do not state data preprocessing, tokenization, serving, or all objectives are undisclosed, as open code contains public detail. Preserve the complete top architecture, all number labels, 16x/4x branches, title, footer, palette and bottom compression caption unchanged."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Internal merger after index6, before remaining20 ViT layers; 4x bypass and16x internal compression are correctly labelled.",
+          "Final2x2 MLP and Qwen3.5-0.8B decoder accurately represented.",
+          "Token-compression ratio distinguished from overall speed; overbroad undisclosed-code panels removed."
+        ]
+      }
+    },
+    {
+      "id": "glm53flash",
+      "model": "GLM-5.3-Flash",
+      "path": "assets/reconstructed/glm53flash-architecture.png",
+      "sources": [
+        "https://huggingface.co/zai-org/GLM-5.3-Flash/raw/main/config.json",
+        "https://huggingface.co/zai-org/GLM-5.3-Flash/raw/main/README.md"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "4B636EDB90611EEBAD2030528B663A8EC020C79C9F8065C5BA4F19D6FED036B2",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"GLM-5.3-Flash architecture reconstruction\". Subtitle \"Native multimodal hybrid attention\".\nBlue Image / Video (\"patch 14; temporal patch 2\") -> \"Vision encoder: 24 layers; hidden 1024; image size 448\" -> \"2 x 2 spatial merge + projection; output dim 4096\". Cream \"Text / Tool-result tokens\" also enters a large green \"GLM-5.3-Flash decoder: 45 layers\". Inside green box make rows \"34 linear attention layers + 11 sparse attention layers\"; \"mHC hyper-connections\"; \"First 3 layers: dense FFN\"; \"Remaining layers: MoE\". Adjacent contained MoE inset \"288 routed experts; top-8 + 1 shared\". Bottom inside decoder \"320B total / 18B active\". Output orange \"Text / Code / Tool calls\". Small bottom caption \"Configured max position: 1M\". Distinct lower training panel \"30T-token multimodal pre-training\" and grey dashed \"Full training stages and RL algorithm: undisclosed\". No AIMv2 claim, no Qwen-style full attention instead of sparse attention, no audio generator.",
+      "revision_prompts": [],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "24-layer vision and45-layer text backbone with34linear/11sparse attention verified.",
+          "mHC, first3denseFFN and laterMoE,288routed experts top8+shared preserved.",
+          "30T multimodal pre-training separated from undisclosed detailed freeze/RL schedule."
+        ]
+      }
+    },
+    {
+      "id": "kimik26",
+      "model": "Kimi K2.6",
+      "path": "assets/reconstructed/kimik26-architecture.png",
+      "sources": [
+        "https://huggingface.co/moonshotai/Kimi-K2.6/raw/main/config.json",
+        "https://huggingface.co/moonshotai/Kimi-K2.6",
+        "https://www.kimi.com/en/blog/kimi-k2-6"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "D45B81D1B8E47F4E5C50405E4BCDC523DB249A5DE4349BA7E8866CD95615D930",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Kimi K2.6 architecture reconstruction\".\nBlue \"Image / Video\" -> \"Patch packing; patch 14; divided-fixed positions\" -> \"MoonViT: 400M; 27 layers; spatial-temporal attention\" -> \"PatchMerger + temporal pooling; 2 x 2 spatial merge; output dim 7168\". Cream \"Instruction / History / Tool results\" joins projected visuals into green \"K2-family MoE decoder: 61 layers; MLA\". Inside \"1T total / 32B active; 256K context\", \"384 routed experts; top-8 + 1 shared\". Orange output \"Text / Code / Tool calls\". Separate lavender system panel below output \"Agent Swarm: up to 300 subagents; 4000 coordination steps\". Agent Swarm -> system tool box \"Code / Search / Browser / External media tools\" -> feedback arrow back to input, clearly outside neural decoder. Grey dashed small training note \"Data ratios, freeze schedule and RL algorithm: undisclosed\". Use exact encoder name MoonViT, not MoonViT-3D. External image/video generation tools are tools, not native neural output heads.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix only the tool-feedback loop in the inspected KimiK2.6 architecture figure. The existing long return arrow from external tools ends only at the Image / Video input; replace it by a branched return at the LEFT side. Starting from Code / Search / Browser / External media tools, the loop should reach a junction at left and then split into two clearly labelled branches: \"Text results\" points into the LEFT EDGE of \"Instruction / History / Tool results\" cream box, and \"Visual observations\" points into the BOTTOM EDGE of the blue \"Image / Video\" box. Label the main return route \"Tool feedback\". Do not run text through the visual encoder. Preserve all model backbone boxes, numeric counts, 300 subagent /4000 steps numbers, unknown training note, title, footer and palette unchanged."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "MoonViT27 layers andK2 MoE61-layerMLA counts verified.",
+          "External AgentSwarm/media tools clearly system-level.",
+          "Feedback explicitly branches into text results and visual observations, avoiding routing text through visual encoder."
+        ]
+      }
+    },
+    {
+      "id": "kimik3",
+      "model": "Kimi K3",
+      "path": "assets/reconstructed/kimik3-architecture.png",
+      "sources": [
+        "https://huggingface.co/moonshotai/Kimi-K3",
+        "https://huggingface.co/moonshotai/Kimi-K3/raw/main/config.json",
+        "https://www.kimi.com/en/blog/kimi-k3",
+        "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "F01FD24FD1FEE61FA9A89F2C3E3607E79D717BE62AC44F084D33AEF5211F0CEE",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Kimi K3 architecture reconstruction\".\nImage / Video (\"patch 14\") -> blue \"MoonViT-V2: 401M; 27 layers; hidden 1024; temporal-spatial positions\" -> green \"PatchMerger V2\" with \"2 x 2 spatial merge + temporal pooling; output dim 7168\". Cream Text / Tool results enters decoder alongside visual embeddings. Large green \"Kimi K3 decoder: 93 layers\" with four clean inner label rows: \"69 KDA + 24 Gated MLA\"; \"Attention Residuals: cross-layer retrieval\"; \"Stable LatentMoE: 896 routed experts\"; \"top-16 + 2 shared experts\". Bottom in decoder \"2.8T total / 104B active; 1M context\". Output orange \"Text / Code / Tool calls\". Separate bottom training/efficiency panel \"Quantile Balancing; Per-Head Muon\" -> \"QAT from SFT: MXFP4 weights / MXFP8 activations\". Small grey dashed note \"Detailed visual data mixture and RL recipe: undisclosed\". Do not assume K2.5 unchanged, no native video generation head or speech synthesis.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix ONLY the bottom training/efficiency area of the inspected KimiK3 figure based on the now-available full technical report. Preserve the complete top neural architecture and ALL its numeric facts, MoonViT-V2, patchmerger, decoder, expert counts, output, title and footer. Delete the grey \"Detailed visual data mixture and RL recipe: undisclosed\" box entirely. Replace the entire bottom area with one clean lavender \"Training and efficiency (disclosed report elements)\" panel containing three clear rows:\nRow1 heading \"Context curriculum\" followed by four small cream boxes connected \"8K\" -> \"64K\" -> \"256K\" -> \"1M\".\nRow2 heading \"Post-training\" followed by green boxes \"SFT\" -> \"9 RL teachers\" -> \"MOPD\", with small secondary label under teachers \"3 domains x 3 efforts\".\nRow3 has two separate small cream boxes with no implied sequence: \"Quantile Balancing; Per-Head Muon\" and \"QAT from SFT: MXFP4 weights / MXFP8 activations\".\nKeep rows separate and accurately spelled; do not invent visual pretraining token counts or reward formulas. The panel is training, not inference. Reconstructed provenance footer stays unchanged."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "MoonViT-V2/PatchMergerV2/69KDA+24GatedMLA/LatentMoE896top16+2shared numbers preserved.",
+          "Training updated after full report retrieval: context8K→64K→256K→1M; SFT→9RLteachers(3domains×3efforts)→MOPD.",
+          "QuantileBalancing/Per-HeadMuon and QATfromSFT are parallel disclosed efficiency ingredients; stale RL-undisclosed claim removed."
+        ]
+      },
+      "role": "Auxiliary reconstruction; actual official Figure2 separately saved under assets/new/kimik3-architecture.png"
+    },
+    {
+      "id": "gemma4-architecture",
+      "model": "Gemma 4",
+      "path": "assets/reconstructed/gemma4-architecture.png",
+      "sources": [
+        "https://arxiv.org/html/2607.02770v1#S2.SS1",
+        "https://arxiv.org/html/2607.02770v1#S2.SS2",
+        "https://arxiv.org/html/2607.02770v1#S2.SS3",
+        "https://arxiv.org/html/2607.02770v1#S2.SS6",
+        "https://ai.google.dev/gemma/docs/core/model_card_4",
+        "https://developers.googleblog.com/gemma-4-12b-the-developer-guide/"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "2F9AD8C2B10D02B335E534A83A28361D495AA969305BD2CDE5AE72F4C92B72A6",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Gemma 4 architecture reconstruction\". Wide landscape, two clearly separated panels, concise readable text.\nLeft panel heading \"Encoder variants: E2B / E4B / 26B-A4B / 31B\". Image / sampled video frames -> \"Aspect-ratio preserving resize; 16 x 16 patches\" -> \"ViT\" with note \"150M: E2B/E4B; 550M: 26B-A4B/31B\" -> \"Pool + project\" -> \"Visual soft tokens\". Audio -> \"Mel features\" -> \"USM / Conformer: 305M\" -> \"Audio tokens\", with visible note \"Audio input: E2B/E4B only\". Text -> \"262K tokenizer + embeddings\". These streams -> \"Decoder-only backbone\" with note \"Dense: E2B/E4B/31B; MoE: 26B-A4B\" -> \"Text / Reasoning / Tool calls\".\nRight panel heading \"Encoder-free 12B\". Image -> \"48 x 48 x 3 RGB patches\" -> \"35M linear projection + 2D positions + LayerNorm\". Audio -> \"16 kHz waveform; 40 ms / 640-dim chunks\" -> \"Lightweight linear projection\". Text -> \"262K tokenizer + embeddings\". These three streams -> \"12B Dense Decoder-only backbone\" -> \"Text / Reasoning / Tool calls\". Do not include ViT or Conformer in right panel.\nAcross lower margin, distinct auxiliary box \"Text speculative decoding (reported variants)\" with flow \"Main hidden state + KV\" -> \"4-layer MTP draft head\" -> \"Candidate text tokens\" -> \"Main-model verification\". Lower small note \"Local / global attention; QAT for deployment\". Separate caption \"Encoder variants: frozen perception encoders in pre-training. 12B: unified backbone trained from scratch.\"\nConstraints: Output text only; no speech, image or video generation. Larger left variants 26B-A4B and 31B have no audio input. E2B/E4B are effective parameter labels, do not write them as full total weights. Use <=30 short labels with clean whitespace.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Change only the italic phrase \"(not part of neural inference path)\" at the upper right corner of the bottom Text speculative decoding panel in the inspected Gemma4 figure. Replace it with the exact phrase \"(auxiliary neural decoding path)\". Preserve every other label, all three input routes per panel, all numeric counts, model variants, footer, layout and style exactly unchanged. Do not alter left/right encoder difference."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Separate encoder-based variants versus encoder-free12B; audio restriction for26B/31B stated.",
+          "12B48x48RGB projection and16kHz/40ms/640-dim audio chunks shown.",
+          "MTP explicitly auxiliary neural decoding path, not a non-neural workflow."
+        ]
+      }
+    },
+    {
+      "id": "qwen38-omni-architecture",
+      "model": "Qwen3.8-Omni-Flash",
+      "path": "assets/reconstructed/qwen38-omni-architecture.png",
+      "sources": [
+        "https://arxiv.org/html/2609.25611v1#S2",
+        "https://arxiv.org/html/2609.25611v1#S7",
+        "https://qwen.ai/blog?id=qwen3.8-omni-flash",
+        "https://www.alibabacloud.com/help/en/model-studio/qwen-omni",
+        "https://github.com/QwenLM/Qwen-Live-Harness",
+        "https://github.com/QwenLM/Qwen-MM-Plugins"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "BB2EF10BC5E745561A01E8F9BBF6FCC9E17C195D3231349EFF52D5CD03765330",
+      "initial_prompt": "Use case: scientific-educational.\nCreate an accurate clean scholarly model architecture reconstruction, white background, landscape 3:2 high resolution, crisp professional sans serif and legible English text, pastel blue perception boxes, cream text boxes, green decoder boxes, orange output, lavender system/training panels. Main flow left to right, thin solid arrows only for disclosed module flow, no decoration or vendor logos. Grey dashed boxes labelled \"Undisclosed\" only for unknown details; separate training/system boxes should explicitly say \"not part of neural inference path\". Title is specified verbatim below. Footer exactly \"Reconstructed from public sources; not an official diagram\". Bottom legend \"Solid: disclosed modules and flow\". All numbers and branch distinctions are mandatory; do not invent details or benchmarks.\nTitle \"Qwen3.8-Omni architecture reconstruction\". Subtitle \"Technical report: 2026-09-22; Flash and Flash-Realtime branches\".\nInputs left in four rows: Text -> \"BPE tokenizer (~250K)\"; Image / Video frames -> \"Vision encoder + adapter\"; Mono audio / video soundtrack -> \"16 kHz; 128-bin Mel\" -> \"AuT: 4 Conv2D; 16x downsample; 6.25 Hz\"; Spatial multichannel audio -> \"FOA complex STFT\" -> \"Spatial AuT + adapter\".\nAll enter a concise sequence box \"Time-aligned tokens: text timestamps; spatial time + spatial index\" then green \"Thinker: Qwen3.8-Next hybrid sparse MoE\". Inside labels \"Gated DeltaNet + Qwen Sparse Attention (QSA)\". Small inset for QSA \"Score micro-blocks -> select blocks -> attend original tokens\".\nSolid primary output right \"HTTP Flash: Text / Reasoning / Tool calls\" with \"1M context\". A separate lavender system box \"Agent harness: tools / subagents / lazy AV memory\" loops tool results back into Thinker, clearly system level.\nBelow separate outlined panel heading \"Flash-Realtime: separate service branch\". It receives \"Thinker text + context\" and runs \"Talker\" -> \"RVQ multi-codebook + MTP\" -> \"Causal Code2Wav\" -> \"Streaming speech\". This whole panel is outside HTTP Flash output and accessed by a labelled branch line \"Realtime route\"; never draw speech as the HTTP output.\nUnknown note in grey \"Complete module parameter counts: undisclosed\". Constraints: no exact total model parameter count, no native video generator; generated media requires external agent tools. Do not name vision initialization source because report sections differ. Spatial AuT is disclosed and not a guess. Keep the two API branches visually unmistakable.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix only these details of the inspected Qwen3.8-Omni figure. The lower Flash-Realtime panel incorrectly says \"(not part of neural inference path)\". Replace exactly that label with \"(separate neural speech-output branch)\". Remove the lower \"Notes\" panel to reduce clutter, keeping the single grey note about undisclosed complete parameter counts. Preserve the entire main architecture, disclosed Spatial AuT, QSA inset, HTTP Flash output, the separate Realtime route with Talker/RVQ/MTP/Code2Wav, title/date, footer, arrows, all numeric labels and palette unchanged. In the upper agent harness loop, ensure tool calls go from HTTP Flash output to agent harness and tool results return from harness directly to Thinker, with arrow labels \"Tool calls\" and \"Tool results\", respectively. Avoid reversing these labels.",
+        "Use case: precise-object-edit. In this inspected Qwen3.8-Omni image, redraw ONLY the two tool interaction arrows between Thinker, HTTP Flash and Agent harness. Keep all boxes and all other content unchanged. Erase the current ambiguous arrows between the green Thinker and purple Agent harness, and erase the existing upward arrow from Agent harness to orange HTTP Flash. Then draw exactly two clearly directed arrows: (1) from the BOTTOM CENTER of orange \"HTTP Flash\" DOWN into the TOP RIGHT of purple \"Agent harness\", labelled exactly \"Tool calls\"; (2) from the LEFT EDGE of purple \"Agent harness\" LEFT then UP into the RIGHT EDGE of green \"Thinker\", labelled exactly \"Tool results\". Each must have only one arrowhead, pointing into its destination. No arrow from harness to HTTP output and no arrow from Thinker directly down to harness. Preserve all other module labels, native perception paths, the Realtime speech path, numeric facts and footer."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Disclosed SpatialAuT and AuT input paths; QSA microblock selection shown without total-parameter guesses.",
+          "HTTP text/tools and FlashRealtime Talker/MTP/Code2Wav speech paths explicitly separated.",
+          "Toolcalls go HTTP→agentharness; results agentharness→Thinker; wrong-direction arrows repaired."
+        ]
+      }
+    },
+    {
+      "id": "gpt6-family",
+      "model": "GPT-6 Astra / GPT-6.1 Sol",
+      "path": "assets/reconstructed/gpt6-family-architecture.png",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "https://deploymentsafety.openai.com/gpt-6-astra",
+        "https://deploymentsafety.openai.com/gpt-6-1-sol"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "88652AD7159918A8420439B8FFD3B5B42CC7F0C1231295169492254EFDB21288",
+      "initial_prompt": "Use case: scientific-educational. Asset: an accurate model/system architecture reconstruction for a long-form multimodal-model tutorial. White background, landscape 3:2 high resolution, crisp sans-serif English labels, readable scholarly rectangular blocks, restrained pastel blue input/perception, cream text, green known model, orange output, lavender training/system. Draw thin solid arrows for confirmed system-level flow. Unknown internal details must be a grey dashed box labelled \"Undisclosed\". No invented encoder, decoder, model weights or exact layer counts. Footer exactly \"Reconstructed from public sources; not an official diagram\". Legend \"Solid: disclosed flow | Gray dashed: undisclosed internals\". Keep text compact; no logos or unnecessary decorations. The actual title must contain \"architecture reconstruction\".\nTitle \"GPT-6 Astra / GPT-6.1 Sol architecture reconstruction\". Subtitle \"Public system view\".\nBlue \"Images / Screenshots\" and cream \"Text instructions\" enter a large grey dashed central box \"Multimodal reasoning model\" containing only \"Backbone internals undisclosed\". Model -> orange output \"Text answer / Tool calls\". External lavender system box outside model \"Browser / Computer use / Code / Retrieval\" receives tool calls then returns results + screenshots to input. Small model-side note \"API context: 1.05M; max output: 128K text tokens\". Separate training strip \"Diverse-data pre-training\" -> \"Reasoning RL\" -> \"Instruction / policy alignment\", note \"Astra and Sol: same types of data and training\". Show no ViT, MLP, MoE or number of experts/layers. No native audio/video input for these model IDs; no pixel generation head. Internal unknowns must be clearly visible.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Fix only the bottom model-training panel of the inspected GPT-6Astra/GPT-6.1Sol architecture reconstruction. Preserve everything above that panel, all input/output modalities, unknown backbone, tool loop, context limits, title, footer and palette exactly. Replace the bottom heading by the exact text \"Disclosed training elements\". Replace the three sequential boxes and their arrows with ONLY TWO PARALLEL boxes arranged side by side with NO arrow between them. Left box: \"Diverse filtered data\" and a small secondary line \"Multimodal and text sources\". Right box: \"Reasoning reinforcement learning\" and a small secondary line \"Reasoning and tool-use improvement\". Remove all references to instruction/policy alignment and human preferences, because they are not disclosed as fixed additional stages here. Keep the small line \"Astra and Sol: same types of data and training\" under the two boxes. This is a non-sequential set of publicly disclosed ingredients, not a phase diagram."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Text/image input and text/tool output supported, internal backbone intentionally undisclosed.",
+          "No invented encoder, projector, MoE or layer counts.",
+          "Training ingredients parallel, with no unsupported fixed stage order or preference-alignment stage."
+        ]
+      }
+    },
+    {
+      "id": "gemini31-pro",
+      "model": "Gemini 3.1 Pro",
+      "path": "assets/reconstructed/gemini31-pro-architecture.png",
+      "sources": [
+        "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
+        "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "8B91FF70ED85F090BE99560B94D957F892C1400C6D76938E1A04F06F4BB3DE67",
+      "initial_prompt": "Use case: scientific-educational. Asset: an accurate model/system architecture reconstruction for a long-form multimodal-model tutorial. White background, landscape 3:2 high resolution, crisp sans-serif English labels, readable scholarly rectangular blocks, restrained pastel blue input/perception, cream text, green known model, orange output, lavender training/system. Draw thin solid arrows for confirmed system-level flow. Unknown internal details must be a grey dashed box labelled \"Undisclosed\". No invented encoder, decoder, model weights or exact layer counts. Footer exactly \"Reconstructed from public sources; not an official diagram\". Legend \"Solid: disclosed flow | Gray dashed: undisclosed internals\". Keep text compact; no logos or unnecessary decorations. The actual title must contain \"architecture reconstruction\".\nTitle \"Gemini 3.1 Pro architecture reconstruction\". Subtitle \"Native multimodal sparse MoE\".\nFour inputs \"Text\", \"Image\", \"Audio\", \"Video\" converge at a compact grey dashed box \"Native multimodal representations (encoding details undisclosed)\" -> large green \"Sparse MoE Transformer (Gemini 3 Pro family)\" -> \"Reasoning\" -> orange \"Text answer\". In the model box show a mini conceptual inset with \"Token router\" branching to 3 small generic expert boxes \"Expert A / Expert B / Expert C\"; emphasize only two selected arrows bright solid, unselected light. Label exact \"Conceptual MoE principle; exact implementation and expert counts undisclosed\". Do not pretend 3 experts is actual model count. Small note \"Context up to 1M tokens\". External tool calls optional lavender box outside core, loop results to input. Separate training inset \"Mixed-modality pre-training\" -> \"Instruction tuning / Human preferences / RL\". Grey note \"Layer count, parameter count and training ratios: undisclosed\". Final output text only; no talker or generated pixel/video head.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. Correct only the long feedback arrow starting at the bottom-left of the purple \"External tool calls (optional)\" box in the inspected Gemini3.1Pro figure. It currently points upward into the blue \"Video\" input, which is incorrect. Erase that old loop and its label. Draw one new loop from the LEFT edge of the purple tool box leftward then up, ending with an arrowhead into the BOTTOM edge of the grey dashed \"Native multimodal representations\" box. Label it exactly \"Tool results back to multimodal context\". Tool results may be text, image or other supported observations, not necessarily video. Keep the separate model-to-tool and tool-to-model arrows, every other input line, all conceptual MoE labels and expert counts caveat, context length, training panel, title, footer and layout unchanged."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Native modalities and sparseMoE family shown; tiny expert drawing explicitly conceptual and not actual counts.",
+          "Exact encoder/layer/parameter internals grey-dashed.",
+          "Tool-feedback endpoint repaired to multimodal context, not video-only input."
+        ]
+      }
+    },
+    {
+      "id": "gemini38-flash",
+      "model": "Gemini 3.8 Flash",
+      "path": "assets/reconstructed/gemini38-flash-architecture.png",
+      "sources": [
+        "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+        "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-7-Flash-Model-Card.pdf",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "F22888C9939311241B903DE9DAC7D8BE71C2878B4DABA95C0D5F3EC41E988798",
+      "initial_prompt": "Use case: scientific-educational. Asset: an accurate model/system architecture reconstruction for a long-form multimodal-model tutorial. White background, landscape 3:2 high resolution, crisp sans-serif English labels, readable scholarly rectangular blocks, restrained pastel blue input/perception, cream text, green known model, orange output, lavender training/system. Draw thin solid arrows for confirmed system-level flow. Unknown internal details must be a grey dashed box labelled \"Undisclosed\". No invented encoder, decoder, model weights or exact layer counts. Footer exactly \"Reconstructed from public sources; not an official diagram\". Legend \"Solid: disclosed flow | Gray dashed: undisclosed internals\". Keep text compact; no logos or unnecessary decorations. The actual title must contain \"architecture reconstruction\".\nTitle \"Gemini 3.8 Flash architecture reconstruction\". Subtitle \"Multimodal reasoning and tool loop\".\nText / Image / Audio / Video inputs -> large central grey dashed \"Native multimodal model (Gemini 3 family)\" with note \"Encoding and backbone specifics: undisclosed\". It -> \"Reasoning / Plan\" -> two alternative branches, \"Final text\" and \"External tool call\". Tool calls -> lavender \"Tools and changing environment\" -> \"Results / Observations\" -> loop back to model input. Draw obvious system/model boundary. Model-side annotation \"1M input context; 64K text output\". Side small control box \"Effort setting -> reasoning-token budget\" connected to Reasoning / Plan; no new named hidden layer. Bottom distinct lineage strip \"3.6 Flash -> 3.7 Flash -> 3.8 Flash\". Separate training note \"Family: mixed-modality pre-training + post-training; exact 3.8 recipe undisclosed\". No MoE expert counts, no fabricated vision encoder, no media generator.",
+      "revision_prompts": [],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Four modalities,1Minput/64Ktextoutput and model-tool boundary correct.",
+          "Effort setting shown as budget control; model encoding/backbone marked undisclosed.",
+          "Reasoning/tool loop is system dataflow rather than invented hidden neural architecture."
+        ]
+      }
+    },
+    {
+      "id": "gemini38-audio",
+      "model": "Gemini 3.8 Audio",
+      "path": "assets/reconstructed/gemini38-audio-architecture.png",
+      "sources": [
+        "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "97143802247E3014D0D4081C2DC934647790D1539AD44C422F2FB1AF70B678A7",
+      "initial_prompt": "Use case: scientific-educational. Asset: an accurate model/system architecture reconstruction for a long-form multimodal-model tutorial. White background, landscape 3:2 high resolution, crisp sans-serif English labels, readable scholarly rectangular blocks, restrained pastel blue input/perception, cream text, green known model, orange output, lavender training/system. Draw thin solid arrows for confirmed system-level flow. Unknown internal details must be a grey dashed box labelled \"Undisclosed\". No invented encoder, decoder, model weights or exact layer counts. Footer exactly \"Reconstructed from public sources; not an official diagram\". Legend \"Solid: disclosed flow | Gray dashed: undisclosed internals\". Keep text compact; no logos or unnecessary decorations. The actual title must contain \"architecture reconstruction\".\nTitle \"Gemini 3.8 Audio architecture reconstruction\". Subtitle \"Live and TTS are different service paths\".\nTwo broad separated horizontal lanes. Upper lane heading \"Live / Live Extended Thinking\". Four blue/cream input labels \"Streaming microphone audio\", \"Image / Video\", \"Text\" converge -> grey dashed core \"Native multimodal speech-to-speech model (Gemini 3 Pro family)\" with small \"Codec and layer design undisclosed\" -> orange \"Audio + optional text\". Label \"Input 128K; output 64K\". External lavender \"Tool calls / Results\" loop to upper model input. \"User interruption\" returns from input to live lane. Small optional box \"Extended Thinking: effort / deliberation\" above core, no claim of actual hidden layers.\nLower lane heading \"Flash TTS / Flash-Lite TTS\". \"Text + Voice / Style instruction (8K input)\" -> grey dashed \"TTS model (internals undisclosed)\" -> orange \"Audio only (64K output)\". There must be no image/video/audio-input route in TTS lane.\nBottom training strip \"Family: multimodal pre-training -> Instruction / Preference / RL post-training\". Grey note \"Audio-specialization recipe: undisclosed\". Do not draw a Whisper -> text LLM -> TTS cascade for Live. No published vocoder/codec layer guess.",
+      "revision_prompts": [
+        "Use case: precise-object-edit. In this inspected Gemini3.8Audio diagram, fix ONLY the user interruption arrow in the top Live panel. Erase the current line labelled \"User interruption\" which runs from Tool calls / Results to Text input, including its arrow and label. Instead put a small blue line from \"Streaming microphone audio\" toward the native speech-to-speech model, labelled \"New user speech / interruption\". It should reinforce that incoming new microphone speech can interrupt output. It may merge into the existing audio-input arrow without adding a new internal neural module. Keep the Tool calls / Results bidirectional link to the model unchanged, and preserve every other label, upper/lower service lanes, all context limits, unknown markings, footer, layout and palette."
+      ],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Two separate Live andTTS paths with distinct modalities/context limits.",
+          "Live native speech-to-speech not falsely drawn asWhisper→LLM→TTS.",
+          "User interruption now comes from new microphone speech; codec/vocoder internals remain undisclosed."
+        ]
+      }
+    },
+    {
+      "id": "gemini-omni-flash",
+      "model": "Gemini Omni Flash / 1.1 Flash",
+      "path": "assets/reconstructed/gemini-omni-flash-architecture.png",
+      "sources": [
+        "https://deepmind.google/models/model-cards/gemini-omni-flash/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/"
+      ],
+      "official": false,
+      "provenance": "Public-source architecture reconstruction; not an official diagram.",
+      "sha256": "2779FF461CE04BAD43241FF5C11B806A9F8298EB07A33410E7F54B42496B0A37",
+      "initial_prompt": "Use case: scientific-educational. Asset: an accurate model/system architecture reconstruction for a long-form multimodal-model tutorial. White background, landscape 3:2 high resolution, crisp sans-serif English labels, readable scholarly rectangular blocks, restrained pastel blue input/perception, cream text, green known model, orange output, lavender training/system. Draw thin solid arrows for confirmed system-level flow. Unknown internal details must be a grey dashed box labelled \"Undisclosed\". No invented encoder, decoder, model weights or exact layer counts. Footer exactly \"Reconstructed from public sources; not an official diagram\". Legend \"Solid: disclosed flow | Gray dashed: undisclosed internals\". Keep text compact; no logos or unnecessary decorations. The actual title must contain \"architecture reconstruction\".\nTitle \"Gemini Omni Flash / 1.1 Flash architecture reconstruction\". Subtitle \"Native video generation and conversational editing\".\nFour input blocks \"Text instructions\", \"Reference image\", \"Audio\", \"Source video\" enter a large green \"Native multimodal Transformer-based model\" with nested grey dashed area \"Generative internals and media decoder: undisclosed\". It flows to orange \"Generated / Edited video with audio\". Draw an outside system box \"SynthID marking\" in the output route. The output returns through a lower loop \"Next-turn video reference + new edit instruction\" to input, showing conversation editing. Distinct lower training strip \"Text / Image / Audio / Video + multi-level captions\" -> \"Quality filtering + semantic deduplication\" -> \"Multimodal generative training\"; grey note \"Exact losses: undisclosed\". Do not depict diffusion, autoregressive video tokens, separate Veo call, MoE expert counts or codec layers as disclosed. Do not draw universal text-QA output or promise all output modalities.",
+      "revision_prompts": [],
+      "review": {
+        "status": "PASS",
+        "checked_at": "2026-10-02",
+        "checks": [
+          "Transformer-based native media model and video-with-audio output represented.",
+          "Conversation-edit feedback and system-levelSynthID preserved.",
+          "No fabricated diffusion/video-token/codec or separateVeo implementation."
+        ]
+      }
+    }
+  ]
+}
