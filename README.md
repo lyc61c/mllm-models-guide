@@ -4,6 +4,7 @@
 
 ## 阅读与下载
 
+- [在线阅读 HTML](https://lyc61c.github.io/mllm-models-guide/)：直接在浏览器中阅读，无需下载文件。
 - [可编辑文章](docs/tutorials/mllm-expanded.md)：保留 Yue Shui 原文主体，记录少量技术校订，并在原文最后一个模型之后补充 25 个后续模型章节。
 - [HTML 阅读版](docs/tutorials/mllm-expanded.html)：下载后使用浏览器打开；全部 55 张图片已内嵌，公式使用在线 MathJax。
 - [完整压缩包](docs/tutorials/mllm-expanded.zip)：包含文章、配图、来源记录和审查结果。
