@@ -1,9 +1,9 @@
 {
-  "source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7",
+  "source_sha256": "d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c",
   "original_nonblank_lines_preserved_in_order": 553,
   "original_corrections": 10,
   "new_model_chapters": 27,
-  "new_chinese_characters": 46439,
+  "new_chinese_characters": 46363,
   "embedded_images": 58,
   "paper_and_official_new_images": 17,
   "reconstructed_new_images": 16,

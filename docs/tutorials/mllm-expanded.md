@@ -856,10 +856,6 @@ OpenAI 的 **o3** 和 **o4-mini** ([OpenAI, 2025](https://openai.com/index/intro
 
 o3 和 o4-mini 在多项基准测试中展现了 SOTA 或接近 SOTA 的性能，尤其是在需要深度推理和工具辅助的任务上。专家评估显示，它们相比前代 o1/o3-mini 产生的严重错误更少，回答更实用、可验证，并且交互更自然。
 
-## 补充：InternVL2.5 与 InternVL3
-
-InternVL2.5 于 2024 年 12 月发布，InternVL3 于 2025 年 4 月发布，时间上都早于下面的 2025 年 5 月后续篇。本节补齐这两代模型，使后文 InternVL3.5 的架构与训练演进更容易理解。资料补充核验于 2026 年 10 月 6 日，依据两篇官方技术报告与作者发布说明。
-
 ### InternVL2.5
 
 InternVL2.5 的技术报告 [Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling](https://arxiv.org/abs/2412.05271) 于 2024 年 12 月公开，提供 1B、2B、4B、8B、26B、38B、78B 等规模的模型。其核心思想是同时扩展**模型规模、训练数据质量和测试时计算**：扩大视觉编码器与语言模型的能力，改进多模态数据和损失设计，并用思维链改善复杂视觉推理。模型名称表示近似规模，视觉塔与连接器也计入总参数；例如报告列出的 8B、78B 版本实际约为 8.1B、78.4B。

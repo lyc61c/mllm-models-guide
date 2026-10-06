@@ -96,3 +96,16 @@ Review status: preliminary content and figure review complete; final Markdown/HT
 - 脚本仅包括 renderer 生成的 MathJax 配置和 jsDelivr 上的 MathJax 3.2.2 入口。
 
 本次是静态源文件与 HTML 解析审查。由于本地 `file://` 预览被浏览器协议策略拒绝，没有绕过策略，因此本记录不声称本次构建中 MathJax 已在浏览器实际执行，也不声称完成了交互式浏览器布局检查。早期 282 个公式的 2026-10-02 浏览器记录仅作为历史记录，不替代本次 285 个公式的静态一致性检查。评测数据已对照官方报告表格，但没有重新运行第三方 benchmark。
+
+
+---
+
+# Heading removal delta review
+
+**Verdict: PASS**
+
+The frozen-source diff removes exactly the H2 `补充：InternVL2.5 与 InternVL3`, its short introduction paragraph, and the two adjacent blank lines. The following `InternVL2.5` H3 and all model content remain unchanged.
+
+The generated HTML is fresh for source SHA-256 `d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c` and has SHA-256 `392729be6c7fa1c4e5458043b2e13e7b1c47c6f704c9cb27774a5751120ac2b1`. The removed heading is absent from the HTML and TOC. Current manifests remain consistent and PASS: 51 headings, 58 embedded figures, 285 protected math expressions, 27 model chapters, and 553 original nonblank lines preserved in order.
+
+This bounded delta review inherits the completed prior fact, figure, formula, table, provenance, and benchmark review. No network fact audit, MCP review, browser session, or MathJax runtime execution was performed or claimed. Blocking issues: none. Warnings: none.

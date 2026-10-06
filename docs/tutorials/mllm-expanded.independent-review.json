@@ -3,124 +3,49 @@
   "reviewed_at": "2026-10-06",
   "review_backend": "fresh cross-model collaboration reviewer",
   "mcp__codex__codex_used": false,
-  "mcp_note": "The skill-named MCP endpoint was unavailable. This review was completed by a fresh collaboration reviewer against the frozen files and primary sources; no MCP result is claimed.",
+  "mcp_note": "No MCP or browser review is claimed. This fresh collaboration reviewer performed a bounded static delta audit against the frozen before/after source, generated HTML, and current render and coverage manifests.",
   "source_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-expanded.md",
   "html_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-expanded.html",
-  "source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7",
-  "html_sha256": "f5b6fb52e7f9eaf506f5140e0e29c1175acedf7d6012ca120a9ea8f2ec5f55ea",
+  "source_sha256": "d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c",
+  "html_sha256": "392729be6c7fa1c4e5458043b2e13e7b1c47c6f704c9cb27774a5751120ac2b1",
   "review_scope": {
-    "primary": "The newly added InternVL2.5 and InternVL3 chapters, their three figures, formulas, tables, benchmark conditions, provenance records, and Markdown-to-HTML fidelity.",
-    "inherited": "Claims in chapters predating InternVL2.5 inherit the independent PASS review dated 2026-10-02. This review rechecked their preservation and current document-level static integrity, but did not repeat the full historical fact audit.",
-    "primary_sources": [
-      "https://arxiv.org/html/2412.05271v1",
-      "https://arxiv.org/html/2504.10479v3",
-      "https://internvl.github.io/blog/2024-12-05-InternVL-2.5/",
-      "https://internvl.github.io/blog/2025-04-11-InternVL-3.0/"
-    ]
+    "primary": "Tiny heading removal requested by the user: remove the exact H2 '补充：InternVL2.5 与 InternVL3' and its short introduction paragraph before 'InternVL2.5', then verify the regenerated HTML and manifests.",
+    "inherited": "The completed prior independent PASS review for facts, figures, formulas, tables, provenance, and benchmark conditions is inherited. This delta pass does not repeat that fact audit or use network sources.",
+    "before_source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7"
   },
   "checks": {
+    "exact_requested_deletion": "pass",
     "source_hash_match": "pass",
     "coverage_manifest": "pass",
+    "render_manifest": "pass",
     "information_fidelity": "pass",
     "structure": "pass",
+    "heading_and_toc_correspondence": "pass",
     "math_code_tables": "pass",
+    "image_fidelity_and_provenance": "pass",
     "callouts": "not_applicable",
     "safety_escaping": "pass",
     "placeholder_leak": "pass",
-    "active_content": "pass",
-    "image_fidelity_and_provenance": "pass",
-    "internvl25_fact_accuracy": "pass",
-    "internvl3_fact_accuracy": "pass",
-    "evaluation_condition_accuracy": "pass",
-    "figure_caption_alignment": "pass",
-    "original_article_preservation": "pass",
     "browser_runtime_mathjax": "not_tested"
   },
   "evidence": {
-    "render_freshness": "The HTML source-sha256 metadata and visible source hash match the frozen Markdown SHA-256. The render manifest records 52 headings, 58 images, and 285 protected math expressions; the coverage manifest result is PASS.",
-    "document_counts": {
-      "headings": 52,
-      "tables": 29,
-      "math_expressions": 285,
-      "fenced_code_blocks": 3,
-      "images": 58,
-      "details_blocks": 2
-    },
-    "reviewed_section_counts": {
-      "h2": 1,
-      "h3": 2,
-      "tables": 4,
-      "math_expressions": 3,
-      "images": 3
-    },
-    "math": {
-      "document_source_expressions": 285,
-      "document_html_math_spans": 285,
-      "reviewed_formulas": [
-        "InternVL2.5 square averaging equivalence",
-        "InternVL3 V2PE position recurrence",
-        "InternVL3 MPO weighted objective"
-      ],
-      "assessment": "All three new formulas retain their terms and intended conditions in the generated HTML. The V2PE text correctly distinguishes text step 1 from visual step delta and records that the principal reported results use delta=1 except the dedicated ablation."
-    },
-    "internvl25": {
-      "architecture": "ViT-MLP-LLM, 448x448 image tiles, 1024 vision tokens before pixel unshuffle and 256 afterward are aligned with the report.",
-      "training": "Stage 1 trains only the MLP with ViT and LLM frozen; optional Stage 1.5 trains ViT and MLP with LLM frozen for the 8B and 26B models; Stage 2 performs full-model instruction tuning.",
-      "video_condition": "The chapter explicitly states that sampled video frames are not split into image-style tiles in the described InternVL2.5 pipeline.",
-      "evaluation": "The MMMU validation comparison correctly attributes 66.4 direct and 70.1 CoT to InternVL2.5-78B. The 62.7 to 65.3 majority-vote example is correctly attributed to InternVL2-Llama3-76B rather than InternVL2.5-78B."
-    },
-    "internvl3": {
-      "initialization_and_pretraining": "The chapter correctly describes initialization from pretrained base LLMs, a pretrained ViT, and a newly initialized two-layer MLP. Native multimodal pretraining uses a 1:3 text-to-multimodal mixture totaling 200B tokens; loss is applied to text tokens while all model parameters are jointly updated.",
-      "v2pe": "Training samples a constant per-image visual position increment from {1, 1/2, ..., 1/256}; inference may choose the increment flexibly. The chapter states that the report's main results use delta=1 outside the V2PE ablation.",
-      "mpo": "The weighted DPO, BCO, and generation objective and approximately 300K preference samples are aligned with the report. The stated gains of +3.7, +4.5, and +4.1 for 14B, 38B, and 78B match the reported ablation.",
-      "test_time_scaling": "Best-of-N is correctly tied to the external VisualPRM-8B critic; VisualPRM-Bo8 means best-of-8. The cited 78B baseline/Bo8 values preserve the exact evaluation condition, including MMMU 72.2 to 72.2, seven-task mean 54.6 to 56.5, MathVerse 51.0 to 54.2, and MathVision 43.1 to 40.8."
-    },
-    "images": {
-      "reviewed": [
-        {
-          "path": "assets/new/internvl25-architecture.png",
-          "sha256": "883b8c92fa65b4862d4ca8ff03c9c1345af01852394a7b1080ef2adf5dd02ccc",
-          "assessment": "Complete, readable crop of InternVL2.5 report Figure 2; manifest source, page, dimensions, and hash agree."
-        },
-        {
-          "path": "assets/new/internvl25-training.png",
-          "sha256": "ad77c8842376fe49120127ca7e871bcc8f1d8b08269e6b22959098802398c6d0",
-          "assessment": "Complete, readable crop of InternVL2.5 report Figure 4; freeze/train states and progressive scaling are preserved."
-        },
-        {
-          "path": "assets/reconstructed/internvl3-architecture.png",
-          "sha256": "5d24967fea5d9f2feeba78650052a0187ee91c982c8a9984c3d3aa60bd0f4131",
-          "assessment": "Readable educational reconstruction, explicitly marked nonofficial in the figure and provenance manifest. The final caption states that Dynamic 448x448 tiles summarize visual preprocessing and do not imply that every video frame uses multiple tiles, resolving the only prior ambiguity."
-        }
-      ],
-      "embedded_bytes_match_local_files": true,
-      "missing_provenance_records": 0,
-      "recorded_hash_mismatches": 0
-    },
-    "article_preservation": {
-      "original_nonblank_lines_preserved_in_order": 553,
-      "documented_corrections_applied_exactly_once": 10,
+    "delta": "The frozen-source diff contains only four removed lines: the exact H2, its introduction paragraph, and two adjacent blank lines. The following 'InternVL2.5' H3 and all subsequent model content are unchanged.",
+    "render_freshness": "The HTML source-sha256 meta value and both current manifests match the new frozen Markdown SHA-256 d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c.",
+    "current_counts": {
+      "headings": 51,
+      "embedded_images": 58,
+      "protected_math_expressions": 285,
       "new_model_chapters": 27,
-      "new_chapter_figures": 58
+      "original_nonblank_lines_preserved_in_order": 553
     },
-    "safety": {
-      "unexpected_active_or_form_tags": [],
-      "source_injected_event_handlers": [],
-      "javascript_or_vbscript_urls": [],
-      "placeholder_or_replacement_character_leaks": [],
-      "scripts": [
-        "one renderer-authored MathJax configuration block",
-        "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"
-      ],
-      "assessment": "No source-injected active content or placeholder leak was found. The two scripts are expected renderer output for mathematical display."
-    }
+    "heading_result": "The removed H2 is absent from both source and generated HTML/TOC. The render manifest records the expected one-heading reduction from 52 to 51, with the remaining rendered headings and TOC generated from the current source.",
+    "preservation": "Image count, math-expression count, model coverage, and original-article preservation remain unchanged from the prior reviewed build. The coverage manifest result is PASS."
   },
   "limitations": [
-    "This is a static source/HTML audit. Local file preview was rejected by browser protocol policy, so this review does not claim that MathJax executed or that browser layout was interactively inspected for this build.",
-    "Benchmark statements were checked against the official reports and tables; benchmark suites were not rerun.",
-    "The complete fact review of content predating InternVL2.5 is inherited from the 2026-10-02 independent review; this pass rechecked preservation and current static integrity."
+    "This is a bounded static delta review. It inherits the prior completed fact and figure review and intentionally does not repeat the research fact audit.",
+    "No browser session or MathJax runtime execution was performed or claimed."
   ],
   "blocking_issues": [],
   "warnings": [],
-  "summary": "PASS. The final frozen Markdown hash is fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7, and the generated HTML carries that source hash. The InternVL2.5 and InternVL3 chapters accurately preserve the reports' architecture, training and freezing rules, V2PE and MPO definitions, and benchmark or test-time-scaling conditions. All three new figures match their files and provenance records; the reconstructed InternVL3 diagram is clearly marked nonofficial, and its caption now removes the video-tiling ambiguity. Static structure, formulas, tables, image embeddings, source preservation, escaping, and placeholder checks pass. There are no blocking issues or remaining warnings."
+  "summary": "PASS. The only source change is the requested removal of the standalone InternVL2.5/InternVL3 H2 and its short introduction paragraph. The regenerated HTML carries the exact new source hash, omits that heading from content and TOC, and retains fresh PASS manifests with 51 headings, 58 figures, 285 protected math expressions, 27 model chapters, and all 553 preserved original nonblank lines. No blocking issues or warnings were found."
 }

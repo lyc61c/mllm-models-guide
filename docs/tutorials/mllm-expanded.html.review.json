@@ -1,8 +1,8 @@
 {
   "verdict": "REVIEW_UNAVAILABLE",
   "reason": "The skill-named mcp__codex__codex endpoint is not exposed in this session.",
-  "source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7",
-  "recorded_at": "2026-10-06T20:43:35+08:00",
+  "source_sha256": "d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c",
+  "recorded_at": "2026-10-06T21:35:35+08:00",
   "alternative_review": {
     "verdict": "PASS",
     "backend": "fresh collaboration agent",
@@ -16,7 +16,7 @@
     "embedded_images": 58,
     "protected_math_expressions": 285,
     "unsafe_html_elements": [],
-    "observed_source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7",
+    "observed_source_sha256": "d2ede4246260bfd56949c865b54647bd6954ec93c4af6fb4860ffa737ca66e4c",
     "result": "PASS"
   },
   "browser_checks": {
