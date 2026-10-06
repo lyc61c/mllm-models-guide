@@ -12,6 +12,13 @@
 
 每个新增模型章节均介绍核心思想、模型结构、训练与效果。新增配图包括 17 张论文／官方图，以及 16 张依据公开资料生成、明确标为非官方示意图的架构重建图。闭源模型未披露的内部细节与公开信息分开说明。
 
+## 数据工程与评估教程
+
+- [在线学习：MLLM 数据工程与评估基准](https://lyc61c.github.io/mllm-models-guide/tutorials/mllm-data-evaluation.html)
+- [可编辑 Markdown](docs/tutorials/mllm-data-evaluation.md) · [完整学习包](docs/tutorials/mllm-data-evaluation.zip) · [资料来源](docs/tutorials/mllm-data-evaluation.sources.json)
+
+参考 Datawhale《动手学大模型》数据工程与评估章节的教学组织，面向 MLLM 独立编写。涵盖图像、文档、视频、音频和联合模态的数据获取、清洗、对齐、去重、评测污染控制、训练配比、基准选择、常见指标、评测协议与误差分析。附 5 张原创流程图、6 道自测题和 Python 标准库练习，无需 GPU 或模型权重；练习数据与预测均为人为构造，不对应真实模型成绩。资料核验日期：2026 年 10 月 6 日。
+
 ## 来源与校订
 
 原文：[Yue Shui — 多模态大语言模型](https://syhya.github.io/zh/posts/2025-05-04-multimodal-llm/)。

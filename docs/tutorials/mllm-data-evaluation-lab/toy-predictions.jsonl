@@ -1,0 +1,16 @@
+{"id": "e0-0", "parent_id": "eval-doc0", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCD", "prediction_b": "ABXY"}
+{"id": "e0-1", "parent_id": "eval-doc0", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "A"}
+{"id": "e1-0", "parent_id": "eval-doc1", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCE", "prediction_b": "ABCD"}
+{"id": "e1-1", "parent_id": "eval-doc1", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "B"}
+{"id": "e2-0", "parent_id": "eval-doc2", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCD", "prediction_b": "ABCD"}
+{"id": "e2-1", "parent_id": "eval-doc2", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "B"}
+{"id": "e3-0", "parent_id": "eval-doc3", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCE", "prediction_b": "ABXY"}
+{"id": "e3-1", "parent_id": "eval-doc3", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "A"}
+{"id": "e4-0", "parent_id": "eval-doc4", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCD", "prediction_b": "ABCD"}
+{"id": "e4-1", "parent_id": "eval-doc4", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "B"}
+{"id": "e5-0", "parent_id": "eval-doc5", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCE", "prediction_b": "ABCD"}
+{"id": "e5-1", "parent_id": "eval-doc5", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "B"}
+{"id": "e6-0", "parent_id": "eval-doc6", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCD", "prediction_b": "ABXY"}
+{"id": "e6-1", "parent_id": "eval-doc6", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "A"}
+{"id": "e7-0", "parent_id": "eval-doc7", "task": "ocr", "references": ["ABCD"], "prediction_a": "ABCE", "prediction_b": "ABCD"}
+{"id": "e7-1", "parent_id": "eval-doc7", "task": "mcq", "references": ["B"], "prediction_a": "B", "prediction_b": "B"}

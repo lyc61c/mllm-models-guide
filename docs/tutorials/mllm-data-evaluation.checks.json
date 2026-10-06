@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "static integrity; no browser runtime claim",
+  "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+  "html_sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857",
+  "headings": 40,
+  "tables": 18,
+  "code_blocks": 6,
+  "math_expressions": 45,
+  "embedded_figures": 5,
+  "exercise_details": 6,
+  "registered_sources": 34
+}

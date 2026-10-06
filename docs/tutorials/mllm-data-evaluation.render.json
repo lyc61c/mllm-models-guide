@@ -1,0 +1,233 @@
+{
+  "source_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-data-evaluation.md",
+  "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+  "generated_at": "2026-10-06T21:58:56+08:00",
+  "headings": [
+    [
+      1,
+      "MLLM 数据工程与评估基准：从原始媒体到可信结论",
+      "section-1"
+    ],
+    [
+      2,
+      "第一部分：MLLM 数据工程",
+      "section-2"
+    ],
+    [
+      3,
+      "1.1 数据工程究竟在解决什么问题？",
+      "section-3"
+    ],
+    [
+      3,
+      "1.2 多模态样本有哪些基本形态？",
+      "section-4"
+    ],
+    [
+      3,
+      "1.3 训练阶段如何决定数据需求？",
+      "section-5"
+    ],
+    [
+      3,
+      "1.4 数据从哪里来？如何选择数据源？",
+      "section-6"
+    ],
+    [
+      3,
+      "1.5 媒体解码：最容易被忽略的一层",
+      "section-7"
+    ],
+    [
+      3,
+      "1.6 空间与时间对齐：标签要跟着输入走",
+      "section-8"
+    ],
+    [
+      3,
+      "1.7 质量过滤：规则、模型分数与人工审核如何协作？",
+      "section-9"
+    ],
+    [
+      3,
+      "1.8 多模态去重：为什么只对文本做 MinHash 不够？",
+      "section-10"
+    ],
+    [
+      3,
+      "1.9 先按来源关系分组，再划分 train/dev/test",
+      "section-11"
+    ],
+    [
+      3,
+      "1.10 评测污染：不仅是训练里出现了测试答案",
+      "section-12"
+    ],
+    [
+      3,
+      "1.11 合成数据：教师模型不能替代事实校验",
+      "section-13"
+    ],
+    [
+      3,
+      "1.12 数据配比与计算预算：条数不是训练暴露量",
+      "section-14"
+    ],
+    [
+      3,
+      "1.13 打包、损失掩码与数据加载",
+      "section-15"
+    ],
+    [
+      3,
+      "1.14 数据版本与受控消融：怎样证明新数据有效？",
+      "section-16"
+    ],
+    [
+      2,
+      "第二部分：MLLM 评估与基准测试",
+      "section-17"
+    ],
+    [
+      3,
+      "2.1 先明确评估对象，再选择榜单",
+      "section-18"
+    ],
+    [
+      3,
+      "2.2 建立能力矩阵：每个分数覆盖了什么？",
+      "section-19"
+    ],
+    [
+      3,
+      "2.3 图像、文档与视觉推理基准",
+      "section-20"
+    ],
+    [
+      3,
+      "2.4 视频、音频与联合模态基准",
+      "section-21"
+    ],
+    [
+      3,
+      "2.5 准确率、宏平均与微平均",
+      "section-22"
+    ],
+    [
+      3,
+      "2.6 VQA 共识分数：为什么“三人同意”未必满分？",
+      "section-23"
+    ],
+    [
+      3,
+      "2.7 ANLS：读字错一个字符，应该怎么计分？",
+      "section-24"
+    ],
+    [
+      3,
+      "2.8 数值、定位与时序指标",
+      "section-25"
+    ],
+    [
+      3,
+      "2.9 音频指标与条件困惑度",
+      "section-26"
+    ],
+    [
+      3,
+      "2.10 幻觉与拒答：一个分数覆盖不了全部可靠性",
+      "section-27"
+    ],
+    [
+      3,
+      "2.11 模型裁判与人工评估",
+      "section-28"
+    ],
+    [
+      3,
+      "2.12 视觉依赖、污染与反事实对照",
+      "section-29"
+    ],
+    [
+      3,
+      "2.13 冻结评测协议：分数之外还要报告什么？",
+      "section-30"
+    ],
+    [
+      3,
+      "2.14 置信区间：1 个百分点的提升可信吗？",
+      "section-31"
+    ],
+    [
+      3,
+      "2.15 评测框架：把协议写成代码",
+      "section-32"
+    ],
+    [
+      3,
+      "2.16 错误分析如何反哺数据工程？",
+      "section-33"
+    ],
+    [
+      2,
+      "第三部分：可运行练习与学习自测",
+      "section-34"
+    ],
+    [
+      3,
+      "3.1 十分钟跑通一个数据审计与评分练习",
+      "section-35"
+    ],
+    [
+      3,
+      "3.2 阅读评分结果，而不是只看最终数字",
+      "section-36"
+    ],
+    [
+      3,
+      "3.3 用一张结果卡保存评测条件",
+      "section-37"
+    ],
+    [
+      3,
+      "3.4 思考题与参考分析",
+      "section-38"
+    ],
+    [
+      3,
+      "3.5 发布前检查：确保资料与结论能复现",
+      "section-39"
+    ],
+    [
+      2,
+      "资料导航与文件说明",
+      "section-40"
+    ]
+  ],
+  "images": [
+    {
+      "path": "assets/data-evaluation/lifecycle.svg",
+      "sha256": "a701f4583c97ef145e9762eb0a2b46294bd88cb4be6b1ab6c53c1a395fa07cb0"
+    },
+    {
+      "path": "assets/data-evaluation/alignment.svg",
+      "sha256": "4c3a396796ef4c551532eed96c6e2597f5c05aaf57823142ef30d79ea2540420"
+    },
+    {
+      "path": "assets/data-evaluation/lineage.svg",
+      "sha256": "f9d132d20cb599ec9670629bcd6cd13f113cbee8720ac5ff595aa0ae8be8ef03"
+    },
+    {
+      "path": "assets/data-evaluation/eval-protocol.svg",
+      "sha256": "86affd8f1bdfb39f46e30ebfe9effdbee4c735ade7ef326fdf3b419e24066035"
+    },
+    {
+      "path": "assets/data-evaluation/error-loop.svg",
+      "sha256": "6092de7c0bc0a918492b5df0f8eb18b0fc3d0987c09ddb68e031f86a14a670a5"
+    }
+  ],
+  "math_expressions": 45,
+  "html_sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857",
+  "html_bytes": 104572,
+  "external_runtime": "MathJax 3.2.2 via jsDelivr; offline TeX remains readable"
+}

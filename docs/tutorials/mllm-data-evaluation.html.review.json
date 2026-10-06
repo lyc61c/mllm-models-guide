@@ -1,0 +1,94 @@
+{
+  "verdict": "PASS",
+  "checks": {
+    "source_hash_match": "pass",
+    "information_fidelity": "pass",
+    "structure": "pass",
+    "math_code_tables": "pass",
+    "details_and_images": "pass",
+    "safety_escaping": "pass",
+    "placeholder_leak": "pass",
+    "scientific_method_correctness": "pass",
+    "toy_output_claims": "pass",
+    "citation_registry_consistency": "pass"
+  },
+  "blocking_issues": [],
+  "warnings": [],
+  "summary": "The HTML is a faithful and safe generated view of the frozen Markdown source. The embedded source hash and render sidecar match the current source, the render sidecar's HTML hash matches the current HTML, and an independent in-memory rerender is byte-identical after normalizing only the generation timestamp. All 40 headings, 18 tables, 6 code blocks, 45 protected math expressions, 6 source details blocks plus the generated navigation details block, and 5 embedded SVGs are accounted for. The five decoded SVG payload hashes match the author assets recorded in the render sidecar. No event-handler attributes, unsafe javascript/vbscript URL schemes, or placeholders were found; the two script tags are the renderer's fixed MathJax configuration and pinned jsDelivr MathJax loader. The lab's toy ANLS, leave-one-out VQA consensus, continuous-coordinate IoU, transitive grouping/purge and exact deduplication, and equal-parent paired percentile bootstrap are correct for their explicitly stated teaching conventions. Existing tests pass and the CLI exactly reproduces the published toy counts, delta, and interval. No important factual or citation mismatch was found in the reviewed scope.",
+  "hashes": {
+    "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+    "html_sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857"
+  },
+  "evidence": {
+    "render_counts": {
+      "headings": 40,
+      "tables": 18,
+      "code_blocks": 6,
+      "math_expressions": 45,
+      "source_details_blocks": 6,
+      "generated_navigation_details_blocks": 1,
+      "embedded_svg_images": 5
+    },
+    "safety": {
+      "event_handler_attributes": 0,
+      "unsafe_scheme_attributes": 0,
+      "placeholder_hits": 0,
+      "expected_script_tags": 2,
+      "unexpected_script_tags": 0,
+      "embedded_data_urls": "five data:image/svg+xml;base64 payloads only; each decoded hash matches the recorded local author asset"
+    },
+    "lab_validation": {
+      "command": "python -m unittest -v test_lab.py",
+      "result": "3 tests passed",
+      "cli_split_record_counts": {
+        "train": 12,
+        "dev": 4,
+        "test": 6
+      },
+      "cli_split_group_counts": {
+        "train": 6,
+        "dev": 2,
+        "test": 3
+      },
+      "cli_purged_records": 2,
+      "cli_exact_duplicates_removed": 2,
+      "cli_equal_parent_delta_b_minus_a": -0.3125,
+      "cli_percentile_95_interval": [
+        -0.6875,
+        -0.015625
+      ],
+      "cli_independent_parent_groups": 8,
+      "cli_bootstrap_repeats": 2000,
+      "cli_seed": 23
+    },
+    "citations": {
+      "markdown_external_urls": 34,
+      "registry_urls": 34,
+      "missing_from_registry": 0,
+      "registry_entries_not_linked_from_article": 0,
+      "new_web_browsing_required": false
+    }
+  },
+  "review_environment": {
+    "independent_review_backend": "Codex collaboration sub-agent",
+    "model": "inherited parent model; exact model identifier is not exposed to this reviewer runtime",
+    "mcp__codex__codex_used": false,
+    "browser_or_local_file_preview_used": false,
+    "review_mode": "static source/HTML inspection, deterministic rerender comparison, unit tests, and lab CLI execution"
+  },
+  "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+  "html_sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857",
+  "reviewed_at": "2026-10-06",
+  "review_backend": "fresh collaboration review",
+  "review_invocation": {
+    "agent": "/root/data_eval_review",
+    "model_requested": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "fork_turns": "none",
+    "note": "The invocation explicitly selected this model. The reviewer cannot self-inspect its runtime model ID; its original environment report is retained without using that report to infer the model selection."
+  },
+  "limitations": [
+    "Static render and method review; no browser runtime claim at review boundary.",
+    "Primary references were checked by the author; the reviewer did not repeat a complete audit of all external papers."
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "article": "MLLM 数据工程与评估基准",
+  "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+  "checked_at": "2026-10-06",
+  "source_policy": "Primary papers and official projects; Datawhale is referenced only for pedagogy. No third-party figures copied. All numerical toy examples explicitly labeled.",
+  "figure_policy": {
+    "origin": "5 author-created SVG conceptual diagrams",
+    "paths": [
+      "assets/data-evaluation/alignment.svg",
+      "assets/data-evaluation/error-loop.svg",
+      "assets/data-evaluation/eval-protocol.svg",
+      "assets/data-evaluation/lifecycle.svg",
+      "assets/data-evaluation/lineage.svg"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/1809.02156",
+      "labels_in_article": [
+        "CHAIR"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[1809.02156] Object Hallucination in Image Captioning",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.10244",
+      "labels_in_article": [
+        "ChartQA",
+        "ChartQA 论文"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2203.10244] ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.08402",
+      "labels_in_article": [
+        "LAION-5B",
+        "论文"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2210.08402] LAION-5B: An open large-scale dataset for training next generation image-text models",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.10355",
+      "labels_in_article": [
+        "POPE"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2305.10355] Evaluating Object Hallucination in Large Vision-Language Models",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.16527",
+      "labels_in_article": [
+        "OBELICS 论文",
+        "OBELICS"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2306.16527] OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.02255",
+      "labels_in_article": [
+        "MathVista"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2310.02255] MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2311.16502",
+      "labels_in_article": [
+        "MMMU"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2311.16502] MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.20330",
+      "labels_in_article": [
+        "MMStar 论文",
+        "MMStar"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2403.20330] Are We on the Right Way for Evaluating Large Vision-Language Models?",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.02813",
+      "labels_in_article": [
+        "MMMU-Pro"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2409.02813] MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.15272",
+      "labels_in_article": [
+        "OmniBench"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2409.15272] OmniBench: Towards The Future of Universal Omni-Language Models",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.17146",
+      "labels_in_article": [
+        "PixMo / Molmo"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2409.17146] Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Vision-Language Models",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.10479",
+      "labels_in_article": [
+        "InternVL3 论文",
+        "InternVL3"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "[2504.10479] InternVL3: Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/html/2007.00398#S5.SS1",
+      "labels_in_article": [
+        "DocVQA 论文：评测指标"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "DocVQA: A Dataset for VQA on Document Images",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://arxiv.org/html/2502.13923v1",
+      "labels_in_article": [
+        "Qwen2.5-VL 技术报告",
+        "Qwen2.5-VL"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "Qwen2.5-VL Technical Report",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://datawhalechina.github.io/diy-llm/chapter11/chapter11_%E6%95%B0%E6%8D%AE%E5%B7%A5%E7%A8%8B.html",
+      "http_status": null,
+      "verification_note": "Both referenced chapters were read via web tool. Local HTTP fetch failed; this does not mean the reference is unavailable."
+    },
+    {
+      "url": "https://datawhalechina.github.io/diy-llm/chapter12/chapter12_%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95.html",
+      "http_status": null,
+      "verification_note": "Both referenced chapters were read via web tool. Local HTTP fetch failed; this does not mean the reference is unavailable."
+    },
+    {
+      "url": "https://github.com/AudioLLMs/AudioBench",
+      "labels_in_article": [
+        "AudioBench"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - AudioLLMs/AudioBench: AudioBench: A Universal Benchmark for Audio Large Language Models · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/EvolvingLMMs-Lab/lmms-eval",
+      "labels_in_article": [
+        "lmms-eval"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - EvolvingLMMs-Lab/lmms-eval: One-for-All Multimodal Evaluation Toolkit Across Text, Image, Video, and Audio Tasks · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/GT-Vision-Lab/VQA/blob/master/PythonEvaluationTools/vqaEvaluation/vqaEval.py",
+      "labels_in_article": [
+        "官方评测代码"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "VQA/PythonEvaluationTools/vqaEvaluation/vqaEval.py at master · GT-Vision-Lab/VQA · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/MME-Benchmarks/Video-MME",
+      "labels_in_article": [
+        "Video-MME"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - MME-Benchmarks/Video-MME: ✨✨[CVPR 2025] Video-MME: The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video Analysis · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/MME-Benchmarks/Video-MME-v2",
+      "labels_in_article": [
+        "Video-MME-v2"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - MME-Benchmarks/Video-MME-v2: Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/Sakshi113/MMAU",
+      "labels_in_article": [
+        "MMAU",
+        "版本记录"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - Sakshi113/MMAU · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/Yuliang-Liu/MultimodalOCR",
+      "labels_in_article": [
+        "OCRBench"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - Yuliang-Liu/MultimodalOCR: On the Hidden Mystery of OCR in Large Multimodal Models (OCRBench) · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/haotian-liu/LLaVA",
+      "labels_in_article": [
+        "LLaVA 官方仓库",
+        "LLaVA",
+        "LLaVA 官方实现"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - haotian-liu/LLaVA: [NeurIPS&#39;23 Oral] Visual Instruction Tuning (LLaVA) built towards GPT-4V level capabilities and beyond. · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/mlfoundations/datacomp",
+      "labels_in_article": [
+        "DataComp"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - mlfoundations/datacomp: DataComp: In search of the next generation of multimodal datasets · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/open-compass/VLMEvalKit",
+      "labels_in_article": [
+        "VLMEvalKit"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - open-compass/VLMEvalKit: Open-source evaluation toolkit of large multi-modality models (LMMs), support 220+ LMMs, 80+ benchmarks · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/opendatalab/OmniDocBench",
+      "labels_in_article": [
+        "OmniDocBench"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - opendatalab/OmniDocBench: [CVPR 2025] A Comprehensive Benchmark for Document Parsing and Evaluation · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/opendatalab/OmniDocBench#end-to-end-evaluation",
+      "labels_in_article": [
+        "官方指标说明"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - opendatalab/OmniDocBench: [CVPR 2025] A Comprehensive Benchmark for Document Parsing and Evaluation · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/vis-nlp/ChartQA",
+      "labels_in_article": [
+        "官方项目",
+        "ChartQA"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - vis-nlp/ChartQA · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/webdataset/webdataset",
+      "labels_in_article": [
+        "WebDataset"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "GitHub - webdataset/webdataset: A high-performance Python-based I/O system for large (and small) deep learning problems, with strong support for PyTorch. · GitHub",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://papers.neurips.cc/paper_files/paper/2023/hash/56332d41d55ad7ad8024aac625881be7-Abstract-Datasets_and_Benchmarks.html",
+      "labels_in_article": [
+        "论文"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "DataComp: In search of the next generation of multimodal datasets",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://www.docvqa.org/datasets/docvqa",
+      "labels_in_article": [
+        "DocVQA"
+      ],
+      "retrieved_at": "2026-10-06",
+      "http_status": 200,
+      "document_title": "DocVQA - DocVQA",
+      "role": "primary_technical_source",
+      "version_policy": "Paper revision or mutable repository. Real experiments must pin exact versions; this registry records access, not a frozen benchmark download."
+    },
+    {
+      "url": "https://github.com/MME-Benchmarks/Video-MME-v2#-scoring",
+      "labels_in_article": [
+        "官方评分说明"
+      ],
+      "retrieved_at": "2026-10-06",
+      "role": "primary_technical_source",
+      "verification_note": "Official repository Scoring section read via web tool: groups of four, nonlinear relevance and logic scoring."
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content_ICCV_2019/papers/Biten_Scene_Text_Visual_Question_Answering_ICCV_2019_paper.pdf",
+      "labels_in_article": [
+        "ST-VQA 论文"
+      ],
+      "retrieved_at": "2026-10-06",
+      "role": "primary_technical_source",
+      "verification_note": "ANLS formula checked in primary-paper web search excerpt. Direct PDF web fetch returned HTTP 403; no complete PDF read is claimed.",
+      "web_fetch_status": 403
+    }
+  ]
+}

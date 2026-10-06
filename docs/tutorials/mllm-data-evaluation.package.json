@@ -1,0 +1,101 @@
+{
+  "article": "mllm-data-evaluation",
+  "source_sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+  "html_sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857",
+  "review_verdict": "PASS",
+  "files": [
+    {
+      "path": "mllm-data-evaluation.md",
+      "sha256": "2af749376f3006b583e78971c262cfbc06d10e229312535b2423297a7a8ed6be",
+      "bytes": 63448
+    },
+    {
+      "path": "mllm-data-evaluation.html",
+      "sha256": "d5425edccc04300f4148c9d0c425eb8ad69d0a93ac3985467466fa8ba28c0857",
+      "bytes": 104572
+    },
+    {
+      "path": "mllm-data-evaluation.sources.json",
+      "sha256": "29a0399b670a825e7e31688e814062944c982034267f67a947f5b751f38dee57",
+      "bytes": 18634
+    },
+    {
+      "path": "mllm-data-evaluation.render.json",
+      "sha256": "d326b7ba3cbbea1be1aaf557c1cff3fc996d24b3b1209f70592d0bab9304d2c8",
+      "bytes": 5423
+    },
+    {
+      "path": "mllm-data-evaluation.checks.json",
+      "sha256": "591c4e6caae35e2abf396c0649a163dd76f6e77bb9b2293740a98803149fbdc5",
+      "bytes": 423
+    },
+    {
+      "path": "mllm-data-evaluation.html.review.json",
+      "sha256": "f2b90ca4aa02e50c3ab42562f9ae701b2441ce63ba63d2d01b050c43127fc2c7",
+      "bytes": 4629
+    },
+    {
+      "path": "mllm-data-evaluation-READING.md",
+      "sha256": "6089eda72fd8f5ec6fd502fcd0ca05206c07612b2567fb9e2dc23f8fda35a3a2",
+      "bytes": 1910
+    },
+    {
+      "path": "assets/data-evaluation/alignment.svg",
+      "sha256": "4c3a396796ef4c551532eed96c6e2597f5c05aaf57823142ef30d79ea2540420",
+      "bytes": 2745
+    },
+    {
+      "path": "assets/data-evaluation/error-loop.svg",
+      "sha256": "6092de7c0bc0a918492b5df0f8eb18b0fc3d0987c09ddb68e031f86a14a670a5",
+      "bytes": 2797
+    },
+    {
+      "path": "assets/data-evaluation/eval-protocol.svg",
+      "sha256": "86affd8f1bdfb39f46e30ebfe9effdbee4c735ade7ef326fdf3b419e24066035",
+      "bytes": 2791
+    },
+    {
+      "path": "assets/data-evaluation/lifecycle.svg",
+      "sha256": "a701f4583c97ef145e9762eb0a2b46294bd88cb4be6b1ab6c53c1a395fa07cb0",
+      "bytes": 4614
+    },
+    {
+      "path": "assets/data-evaluation/lineage.svg",
+      "sha256": "f9d132d20cb599ec9670629bcd6cd13f113cbee8720ac5ff595aa0ae8be8ef03",
+      "bytes": 2733
+    },
+    {
+      "path": "mllm-data-evaluation-lab/lab.py",
+      "sha256": "286f643ea9387e571f6429a97887388073159c6910642c09f4bd124689fc17a1",
+      "bytes": 7579
+    },
+    {
+      "path": "mllm-data-evaluation-lab/protected-media.json",
+      "sha256": "87a5598567831cd8063b37f74eabab93e78607da0a991e9aaf8a112fbc286a03",
+      "bytes": 76
+    },
+    {
+      "path": "mllm-data-evaluation-lab/README.md",
+      "sha256": "9789fec57540c7ae203c5f739ce4535aee3b2ca45a997a8281fc4139220faf64",
+      "bytes": 1498
+    },
+    {
+      "path": "mllm-data-evaluation-lab/test_lab.py",
+      "sha256": "4002370fc804b1ece36d00e114bab26542413801cd9ca9abd0af481878ef4ab6",
+      "bytes": 2153
+    },
+    {
+      "path": "mllm-data-evaluation-lab/toy-predictions.jsonl",
+      "sha256": "231d6fbc1734ec1243b6f68baac984b31754f929b80c075f7d516191cf239626",
+      "bytes": 1992
+    },
+    {
+      "path": "mllm-data-evaluation-lab/toy-records.jsonl",
+      "sha256": "dc856ba81eec5a1a1ee670d878a1232a714f8a97a9b1613fa390deba295be6ac",
+      "bytes": 9130
+    }
+  ],
+  "note": "Only this tutorial; toy data/predictions, no model evaluation. The separate model guide is not bundled.",
+  "zip_sha256": "b1275fb56830de03c803bd96971a56e66418afa9f3af73d6efbd5c81094a9913",
+  "zip_bytes": 93635
+}
