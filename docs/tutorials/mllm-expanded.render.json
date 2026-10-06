@@ -1,8 +1,8 @@
 {
-  "source_sha256": "002379f5b5695b692b34c9b207787337798285cd58c2f81c3a946303f9f477a7",
+  "source_sha256": "fd3084ac1ed691819b6a47ac0407b1a420785b78d89797d5beac9e4156dac6d7",
   "source_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\mllm-expanded.md",
-  "generated_at": "2026-10-02T17:49:48+08:00",
-  "headings": 49,
+  "generated_at": "2026-10-06T20:36:35+08:00",
+  "headings": 52,
   "images": [
     "assets/original/multimodality_data.png",
     "assets/original/MLLMs_arch.png",
@@ -29,6 +29,9 @@
     "assets/original/kimi_vl_post_training.png",
     "assets/original/thinking_with_images_static.webp",
     "assets/original/o3_o4_benchmark.png",
+    "assets/new/internvl25-architecture.png",
+    "assets/new/internvl25-training.png",
+    "assets/reconstructed/internvl3-architecture.png",
     "assets/new/glm46v-architecture.png",
     "assets/new/internvl35-architecture.png",
     "assets/new/minicpmv45-architecture.png",
@@ -60,6 +63,6 @@
     "assets/reconstructed/gemini38-audio-architecture.png",
     "assets/reconstructed/gemini-omni-flash-architecture.png"
   ],
-  "math_expressions": 282,
-  "html_bytes": 63346318
+  "math_expressions": 285,
+  "html_bytes": 65766613
 }

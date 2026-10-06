@@ -1,16 +1,16 @@
 # MLLM Models Guide · 多模态大模型综述
 
-中文多模态大语言模型学习材料，整理模型结构、训练方法、评测效果与架构图。资料核验日期：2026 年 10 月 2 日。
+中文多模态大语言模型学习材料，整理模型结构、训练方法、评测效果与架构图。原续篇资料核验日期：2026 年 10 月 2 日；InternVL2.5、InternVL3 补充核验日期：2026 年 10 月 6 日。
 
 ## 阅读与下载
 
 - [在线阅读 HTML](https://lyc61c.github.io/mllm-models-guide/)：直接在浏览器中阅读，无需下载文件。
-- [可编辑文章](docs/tutorials/mllm-expanded.md)：保留 Yue Shui 原文主体，记录少量技术校订，并在原文最后一个模型之后补充 25 个后续模型章节。
-- [HTML 阅读版](docs/tutorials/mllm-expanded.html)：下载后使用浏览器打开；全部 55 张图片已内嵌，公式使用在线 MathJax。
+- [可编辑文章](docs/tutorials/mllm-expanded.md)：保留 Yue Shui 原文主体，记录少量技术校订，并在原文最后一个模型之后补充 27 个模型章节，含 InternVL2.5、InternVL3。
+- [HTML 阅读版](docs/tutorials/mllm-expanded.html)：下载后使用浏览器打开；全部 58 张图片已内嵌，公式使用在线 MathJax。
 - [完整压缩包](docs/tutorials/mllm-expanded.zip)：包含文章、配图、来源记录和审查结果。
 - [阅读说明](docs/tutorials/READING-GUIDE.md)。
 
-每个新增模型章节均介绍核心思想、模型结构、训练与效果。新增配图包括 15 张论文／官方图，以及 15 张依据公开资料生成、明确标为非官方示意图的架构重建图。闭源模型未披露的内部细节与公开信息分开说明。
+每个新增模型章节均介绍核心思想、模型结构、训练与效果。新增配图包括 17 张论文／官方图，以及 16 张依据公开资料生成、明确标为非官方示意图的架构重建图。闭源模型未披露的内部细节与公开信息分开说明。
 
 ## 来源与校订
 

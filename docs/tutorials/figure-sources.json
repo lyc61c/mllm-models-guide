@@ -391,5 +391,65 @@
       438
     ],
     "pdf_page": 3
+  },
+  {
+    "model": "InternVL2.5",
+    "key": "internvl25-architecture",
+    "figure": 2,
+    "pdf_url": "https://arxiv.org/pdf/2412.05271v1",
+    "pdf_page_1based": 3,
+    "html_url": "https://arxiv.org/html/2412.05271v1#S2.F2",
+    "caption": "InternVL2.5 paper Figure 2",
+    "license": "See original paper license; third-party figure rights remain with authors",
+    "local_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\assets\\new\\internvl25-architecture.png",
+    "relative_path": "assets/new/internvl25-architecture.png",
+    "sha256": "883b8c92fa65b4862d4ca8ff03c9c1345af01852394a7b1080ef2adf5dd02ccc",
+    "width": 1356,
+    "height": 462,
+    "method": "paper_pdf_crop",
+    "crop": {
+      "coordinates_pdf_points": [
+        80,
+        68,
+        532,
+        222
+      ],
+      "render_scale": 3
+    },
+    "image_mode": "RGB",
+    "has_alpha": false,
+    "visual_verified_at": "2026-10-06",
+    "visual_verification": "Full source page and final crop visually inspected: all architecture/training boxes, arrows and panel labels retained; caption outside crop.",
+    "third_party_notice": "Retain attribution and linked paper figure number."
+  },
+  {
+    "model": "InternVL2.5",
+    "key": "internvl25-training",
+    "figure": 4,
+    "pdf_url": "https://arxiv.org/pdf/2412.05271v1",
+    "pdf_page_1based": 6,
+    "html_url": "https://arxiv.org/html/2412.05271v1#S3.F4",
+    "caption": "InternVL2.5 paper Figure 4",
+    "license": "See original paper license; third-party figure rights remain with authors",
+    "local_path": "D:\\CodeSpace\\MLLM offer\\docs\\tutorials\\assets\\new\\internvl25-training.png",
+    "relative_path": "assets/new/internvl25-training.png",
+    "sha256": "ad77c8842376fe49120127ca7e871bcc8f1d8b08269e6b22959098802398c6d0",
+    "width": 1356,
+    "height": 903,
+    "method": "paper_pdf_crop",
+    "crop": {
+      "coordinates_pdf_points": [
+        80,
+        66,
+        532,
+        367
+      ],
+      "render_scale": 3
+    },
+    "image_mode": "RGB",
+    "has_alpha": false,
+    "visual_verified_at": "2026-10-06",
+    "visual_verification": "Full source page and final crop visually inspected: all architecture/training boxes, arrows and panel labels retained; caption outside crop.",
+    "third_party_notice": "Retain attribution and linked paper figure number."
   }
 ]

@@ -1,6 +1,6 @@
 # 多模态大语言模型及后续主流模型
 
-原文作者：**Yue Shui**。原文发表于 **2025 年 5 月 4 日**：[《多模态大语言模型》](https://syhya.github.io/zh/posts/2025-05-04-multimodal-llm/)。本增补版资料核验日期为 **2026 年 10 月 2 日**。
+原文作者：**Yue Shui**。原文发表于 **2025 年 5 月 4 日**：[《多模态大语言模型》](https://syhya.github.io/zh/posts/2025-05-04-multimodal-llm/)。原续篇资料核验日期为 **2026 年 10 月 2 日**；InternVL2.5、InternVL3 于 **2026 年 10 月 6 日**补充核验。
 
 本文保留原文从多模态基础、ViT、CLIP、BLIP 到 Kimi-VL、o3/o4-mini 的结构与主体内容，作少量技术校订，并在最后一个模型后续写 2025—2026 年公开的代表性模型。各节沿用“核心思想／架构细节／训练／效果”的介绍方式。模型发布日期、论文首次提交日期和服务版本更新时间分别标明；原文的“最新”“SOTA”等表述按 2025 年 5 月的历史语境阅读。
 
@@ -855,6 +855,130 @@ OpenAI 的 **o3** 和 **o4-mini** ([OpenAI, 2025](https://openai.com/index/intro
 
 
 o3 和 o4-mini 在多项基准测试中展现了 SOTA 或接近 SOTA 的性能，尤其是在需要深度推理和工具辅助的任务上。专家评估显示，它们相比前代 o1/o3-mini 产生的严重错误更少，回答更实用、可验证，并且交互更自然。
+
+## 补充：InternVL2.5 与 InternVL3
+
+InternVL2.5 于 2024 年 12 月发布，InternVL3 于 2025 年 4 月发布，时间上都早于下面的 2025 年 5 月后续篇。本节补齐这两代模型，使后文 InternVL3.5 的架构与训练演进更容易理解。资料补充核验于 2026 年 10 月 6 日，依据两篇官方技术报告与作者发布说明。
+
+### InternVL2.5
+
+InternVL2.5 的技术报告 [Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling](https://arxiv.org/abs/2412.05271) 于 2024 年 12 月公开，提供 1B、2B、4B、8B、26B、38B、78B 等规模的模型。其核心思想是同时扩展**模型规模、训练数据质量和测试时计算**：扩大视觉编码器与语言模型的能力，改进多模态数据和损失设计，并用思维链改善复杂视觉推理。模型名称表示近似规模，视觉塔与连接器也计入总参数；例如报告列出的 8B、78B 版本实际约为 8.1B、78.4B。
+
+**模型结构**
+
+InternVL2.5 沿用 InternVL 的 **ViT–MLP–LLM** 结构：InternViT 编码图像，pixel unshuffle 压缩空间 token，随机初始化的两层 MLP 将视觉特征映射到语言模型的嵌入空间，随后把视觉 token 与文本 token 拼入同一自回归序列。不同规模搭配 InternViT-300M 或 InternViT-6B，以及 InternLM2.5、Qwen2.5 系列的指令微调语言模型。这里的两层 MLP 是跨模态连接器，不是另一个语言模型；视觉编码器并不直接生成回答。
+
+![InternVL2.5 论文 Figure 2：整体架构与不同输入格式](assets/new/internvl25-architecture.png)
+
+*InternVL2.5 论文 Figure 2 原图。左侧展示高分辨率图像的切块与缩略图，右侧展示 InternViT、pixel unshuffle、MLP 和语言模型的连接。[论文图与上下文](https://arxiv.org/html/2412.05271v1#S2.F2)*
+
+高分辨率处理采取**动态切块**：根据原图宽高比选择网格，将图像转换为若干 448×448 的 tile；存在多个 tile 时还可加入全局缩略图，让模型同时获得局部文字与整体布局。每个 tile 采用 14×14 patch，初始得到 32×32＝1024 个视觉 token；通过 2×2 pixel unshuffle，将相邻空间位置的特征移入通道维，变为 16×16＝256 个视觉 token，再经 MLP 投影。这保留了细节输入，同时减少语言解码器需要处理的视觉序列长度。
+
+单图、多图、视频采用不同预算。单图可使用完整切块上限；多图在各图之间分配总预算，避免图片数量增加后每张仍占满预算；视频以 448×448 的帧输入处理，每帧的切块上限为 1。按每帧 256 个视觉 token 计算，32 帧、64 帧分别对应 8192、16384 个视觉 token，尚未计入提示文本及分隔符。增加 tile 或视频帧有助于感知细节，也会增加注意力计算、KV cache 与推理延迟；这不是免费扩展分辨率。
+
+**训练**
+
+报告采用分阶段训练，并通过 **progressive scaling** 复用已经学好的视觉组件：先让较小语言模型帮助训练视觉塔，再把视觉塔迁移到更大的语言模型进行对齐与指令微调，从而减少每个大模型都重新执行视觉预训练的成本。
+
+![InternVL2.5 论文 Figure 4：训练阶段与渐进式扩展](assets/new/internvl25-training.png)
+
+*InternVL2.5 论文 Figure 4 原图。上半部分为训练阶段，冰块与火焰分别表示冻结和更新；下半部分为视觉编码器在不同语言模型规模间的复用。[论文图与上下文](https://arxiv.org/html/2412.05271v1#S3.F4)*
+
+| 阶段 | 更新的模块 | 冻结的模块 | 主要作用 |
+| --- | --- | --- | --- |
+| Stage 1：MLP warmup | 两层 MLP | InternViT、LLM | 将视觉输出初步对齐到语言嵌入空间 |
+| Stage 1.5：ViT incremental learning，可选 | InternViT、MLP | LLM | 通过生成式多模态目标改善视觉表征 |
+| Stage 2：全模型指令微调 | InternViT、MLP、LLM | 无 | 学习图文指令、跨图关系、视频理解与回答格式 |
+
+Stage 1.5 并非每个发布版本都执行。例如报告的训练配置中，8B、26B 使用该阶段，而部分其他版本复用已有视觉权重。因此，理解训练流程时应同时关注阶段说明和各规模的配置，不能把三个阶段当成所有权重的固定训练记录。
+
+数据侧同时使用单图、多图、视频与纯文本样本，进行异常格式、重复内容等过滤，并结合模型辅助评分提高样本质量。图像训练采用随机 JPEG 压缩，质量参数范围为 75–100，以提升对网页、扫描件及有损压缩输入的适应能力。该增强针对图像，不应理解为视频和纯文本也执行同样操作。
+
+损失侧提出 **square averaging**，折中 token averaging 与 sample averaging。设第 b 个样本有 L_b 个参与监督的回答 token，其每个 token 的交叉熵为 ℓ_b,t，则可将归一化后的加权目标写为：
+
+$$
+\mathcal{L}_{\mathrm{square}}=
+\frac{\sum_b L_b^{-1/2}\sum_{t=1}^{L_b}\ell_{b,t}}
+{\sum_b L_b^{1/2}}.
+$$
+
+这里是对论文权重规则的等价展开：每个回答 token 的样本权重为 L_b 的负二分之一次方。token averaging 使长回答总权重近似与长度成正比；sample averaging 让各样本总权重相同；square averaging 则让总权重随回答长度的平方根增长，减轻超长答案对训练的支配，同时保留较长推理样本的贡献。长度按有效监督 token 计算，提示词与视觉输入不算作回答损失。
+
+**效果**
+
+报告在 OCR、文档、图表、多图、视频、数学及综合视觉推理等任务上评估模型。测试时扩展主要展示思维链的收益：让模型先解释观察与推理过程，再给出答案，在 MMMU 上改善了 78B 版本的结果。
+
+| 模型与测试条件 | MMMU validation | 含义 |
+| --- | --- | --- |
+| InternVL2.5-78B，直接回答 | 66.4 | 不要求展开思维链的结果 |
+| InternVL2.5-78B，CoT 提示 | 70.1 | 相同模型改用思维链，提升 3.7 个百分点 |
+
+上述数字来自报告摘要及推理实验。CoT 增加输出 token 与延迟，收益依赖题目和提示；70.1 不能当成所有提示条件下的固定成绩。报告还讨论采样与投票等测试时扩展，但其中部分例子使用其他 InternVL 权重，需要保留对应模型名称，不能统一归入 InternVL2.5-78B。
+
+这一代的价值在于：保持较清晰的视觉编码器与语言模型接口，通过视觉能力扩展、数据治理、合理的损失权重和测试时推理，共同提升开源模型的综合表现。其实际使用仍受输入 tile/帧数、语言骨干规模和推理预算影响；在小字 OCR、多步图表推理等任务中应分别核对感知与推理错误。[技术报告](https://arxiv.org/html/2412.05271v1)、[官方发布说明](https://internvl.github.io/blog/2024-12-05-InternVL-2.5/)
+
+### InternVL3
+
+InternVL3 于 2025 年 4 月 11 日发布，随后公开 [InternVL3: Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models](https://arxiv.org/abs/2504.10479)。模型家族覆盖 1B、2B、8B、9B、14B、38B、78B。它的主要变化是**原生多模态预训练（native multimodal pre-training）**：把语言预训练与视觉语言对齐放入同一阶段，再通过高质量监督微调、混合偏好优化和测试时选优提升能力。这里的“原生”指训练过程中的图文联合优化，模型仍以预训练视觉塔和语言 base 权重初始化。
+
+**模型结构**
+
+整体仍为 **InternViT → pixel unshuffle → 两层 MLP → LLM**，保留 448×448 动态图像切块和每个 tile 256 个视觉 token 的设计。1B、2B、8B、9B、14B 使用 InternViT-300M，38B、78B 使用 InternViT-6B；语言骨干主要来自 Qwen2.5 base，9B 使用 InternLM3-8B base。相比 InternVL2.5 主要连接指令微调语言模型，InternVL3 从 base LLM 开始联合预训练，让图文与纯文本能力在同一过程中形成。
+
+![InternVL3：架构、联合预训练与测试时选优的教学重建图](assets/reconstructed/internvl3-architecture.png)
+
+*根据 InternVL3 技术报告第 2 节生成的教学重建图，非论文原图。上方为视觉与文本进入统一序列的流程；下方左侧为训练顺序，右侧为可选的测试时 Best-of-8。图中 Dynamic 448×448 tiles 概括视觉预处理，不表示每个视频帧都采用多 tile。论文 Figure 1、2 为性能图，未提供这样的整体架构图；此处不将重建图冒充论文图。[公开依据](https://arxiv.org/html/2504.10479v3#S2)*
+
+针对较长的视觉序列，报告引入 **V2PE（Variable Visual Position Encoding）**。传统文本与视觉 token 都以 1 为步长递增位置编号，很多 tile 或视频帧会快速拉大位置范围；V2PE 让文本保持整数步长，而视觉 token 使用可变的分数步长：
+
+$$
+p_i=p_{i-1}+\begin{cases}
+1,&\text{第 }i\text{ 个 token 为文本},\\
+\delta,&\text{第 }i\text{ 个 token 为视觉输入}.
+\end{cases}
+$$
+
+训练时，每张图的 δ 从 1、1/2、1/4、…、1/256 中采样，同一张图内部使用相同步长；推理时可根据序列情况设置。当 δ＝1 时，退化为常规位置递增。V2PE 缩小的是**视觉 token 占用的位置编号跨度**，视觉 token 本身仍保留，因此不会自动缩短注意力序列或等比例减少 KV cache。另一个重要评测条件是：报告除 V2PE 专项消融外，其余结果固定 δ＝1，主榜提升不能直接归因于测试时启用分数步长。
+
+**训练**
+
+训练路线由联合预训练、监督微调和 MPO 构成，重点是在保留语言能力的同时让视觉条件更早进入语言学习，再对复杂回答进行偏好优化。
+
+| 阶段 | 训练内容 | 关键机制 |
+| --- | --- | --- |
+| 原生多模态预训练 | 预训练 ViT、base LLM 与新 MLP 共同优化 | 纯文本与多模态混合；所有层联合更新 |
+| 监督微调（SFT） | 高质量、多样化图文与文本指令 | 强化推理、长视频、文档、GUI、空间与工具相关任务 |
+| 混合偏好优化（MPO） | 偏好回答与非偏好回答的对比训练 | 同时使用偏好、绝对质量与生成三个目标 |
+
+联合预训练总量约 **200B token**，其中纯文本约 50B、多模态约 150B，比例约为 1:3。损失计算在文本 token 上，视觉输入作为回答的条件；“只对文本计算损失”不表示冻结视觉塔，因为文本预测误差仍会经连接器向视觉编码器反向传播。该阶段联合更新 ViT、MLP 和 LLM，有别于仅训练连接器的对齐方式。上述 200B 是这一阶段的训练 token 总量，不代表从随机权重开始训练，也不等于 200B 张图片或所有位置都被当作预测目标。
+
+SFT 在更丰富、高质量的数据上学习指令遵循，沿用随机 JPEG 压缩、square averaging 等训练策略，并扩展多图、长视频、科学图表、GUI 操作与三维空间理解相关任务。训练这些任务表示模型学习了相应输入与输出形式，部署完整智能体仍需结合工具接口与环境反馈。
+
+随后进行 **MPO（Mixed Preference Optimization）**。报告使用约 300K 偏好样本，包含通过 SFT 模型生成并筛选的回答。其目标可以概括为：
+
+$$
+\mathcal{L}_{\mathrm{MPO}}=
+w_p\mathcal{L}_{\mathrm{DPO}}+
+w_q\mathcal{L}_{\mathrm{BCO}}+
+w_g\mathcal{L}_{\mathrm{generation}}.
+$$
+
+DPO 项提高偏好回答相对于非偏好回答的概率；BCO 项学习回答的绝对质量，补充只看成对差异的信息；generation 项对偏好回答保留语言建模监督，帮助维持正确答案的生成能力。MPO 属于后训练中的混合偏好目标，不能直接等同于在线 PPO。三项结合的效果应通过消融实验判断，而不只是按目标数量推断更强。
+
+**效果**
+
+报告覆盖视觉数学与推理、OCR/图表/文档、多图、真实场景、视频、GUI 和空间理解等任务。下面摘录同一报告 Table 2 的 78B 结果，比较默认生成与额外测试时选优，避免跨报告混用提示及评测条件。
+
+| 模型与条件 | MMMU | MathVista | MathVision | MathVerse（Vision-Only） |
+| --- | --- | --- | --- | --- |
+| InternVL3-78B，报告默认生成 | 72.2 | 79.0 | 43.1 | 51.0 |
+| InternVL3-78B + VisualPRM-Bo8 | 72.2 | 80.5 | 40.8 | 54.2 |
+
+**VisualPRM-Bo8** 指生成 8 个候选回答，由外部 VisualPRM-8B 对推理步骤评分，并依据步骤分数的平均值选出回答。它增加生成和评分开销，不是 InternVL3 解码器内部新增的模块，也不能将其成绩当成单次回答效果。表中 MathVerse 提升 3.2 个百分点，而 MathVision 下降 2.3 个百分点，说明选优策略也会受评分器与任务匹配程度影响。
+
+训练消融进一步显示，78B 在七项推理任务上的平均分经 MPO 从 50.5 提升至 54.6，其中 MathVista 从 74.0 提升至 79.0，MMMU 保持 72.2；这些数字体现该报告条件下的后训练收益，不能推广为所有任务都同幅改善。加入 Best-of-8 后，Table 2 的七项平均分为 56.5，可见训练与测试时计算提供了不同来源的增益。
+
+InternVL3 的技术演进可以概括为：保持成熟的视觉与语言模块接口，用图文混合预训练改善能力形成过程，用 V2PE 研究长视觉上下文的位置表示，再通过 SFT、MPO 和可选的外部评分器完善回答。应用时应根据部署规模、图像与帧数、是否使用 MPO 权重和测试时采样预算选择配置，并在目标任务上核验准确率与延迟。[技术报告 v3](https://arxiv.org/html/2504.10479v3)、[官方发布说明](https://internvl.github.io/blog/2025-04-11-InternVL-3.0/)
 
 ## 2025 年 5 月之后的代表性多模态模型
 
@@ -2190,6 +2314,10 @@ Omni 的代表性在于从“理解多模态内容”迈向“按多模态约束
 [40] Google DeepMind. [Gemini 3.1 Pro 模型卡](https://deepmind.google/models/model-cards/gemini-3-1-pro/)、[Gemini 3.8 Flash 模型卡](https://deepmind.google/models/model-cards/gemini-3-8-flash/)、[Gemini 3.8 Audio 模型卡](https://deepmind.google/models/model-cards/gemini-3-8-audio/)、[Gemini Omni Flash 模型卡](https://deepmind.google/models/model-cards/gemini-omni-flash/). 2026。版本依赖、评测方法及具体报告见对应章节链接。
 
 [41] Kimi Team. [Kimi K3 官方技术报告](https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf)、[公开权重与配置](https://huggingface.co/moonshotai/Kimi-K3). 2026。Figure 2 与训练章节见正文。
+
+[42] InternVL Team. [Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling](https://arxiv.org/abs/2412.05271). 2024。InternVL2.5 架构和训练图参照 v1 的 Figure 2、4。
+
+[43] InternVL Team. [InternVL3: Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models](https://arxiv.org/abs/2504.10479). 2025。本文参照 v3；架构教学重建图与原论文性能图明确区分。
 
 ## 引用
 
